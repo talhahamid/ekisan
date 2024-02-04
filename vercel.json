@@ -7,6 +7,11 @@
     "routes":[{
         "src":"/(.*)",
         "dest": "ekisan.wsgi.py"
-    }]
+    }],
+    "rewrites":[
+        {
+            "source":"/(.*)","destination":"/"
+        }
+    ]
 
 }
