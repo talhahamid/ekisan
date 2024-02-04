@@ -1,0 +1,41 @@
+{% include 'menudealer.html' %}
+{% include 'header.html' %}
+
+
+
+
+<div class="content mt-3 shadow-lg">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-8" style="margin-left: 150px ; margin-top : 50px">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Bitting Form</strong>
+                    </div>  
+                    <div class="card-body">
+                        <form method="post" action="{% url 'process_bit' %}">
+                            {% csrf_token %}
+                            <p>Farmer: <input type="text" style="margin-left: 100px;" name="farmer" value="{{ user_name }}" readonly></p>
+                            <p>Product: <input type="text" style="margin-left: 92px;" name="product" value="{{ product_name }}" readonly></p>
+                            <p>Product Type: <input type="text" style="margin-left: 55px;" name="product_type" value="{{ product_type }}" readonly></p>
+                            <p>Quality: <input type="text" style="margin-left: 97px;" name="quality" value="{{ quality }}" readonly></p>
+                            <p>Rate: <input type="text" style="margin-left: 115px;" name="rate" value="{{ rate }}" readonly></p>
+                            <p>Quantity: <input type="text" style="margin-left: 87px;" name="quantity" value="{{ quantity }} Kg" readonly></p>
+                            <div style="display: flex">
+                                <label style="margin-left: 50px;margin-top:7px;font-weight:  bold;font-size: 18px;"> Your Bit : </label>
+                                <input class="form-control" type="text" name="bit" style="margin-left: 50px; width: 300px;"/> 
+                                <input class="form-control bg-success text-white" type="submit" style="margin-left: 50px; width: 100px;" />
+                            </div>       
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
+
+</div>
+<div class="shadow-lg">
+    {% include 'dealerfooter.html' %}
+</div>

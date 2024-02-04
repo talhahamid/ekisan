@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang=""> 
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-KISAN</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="apple-touch-icon" href="{% static 'apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/cs-skin-elastic.css' %}">
+    <!-- <link rel="stylesheet" href="Layout/assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="{% static 'assets/scss/style.css' %}">
+    <link href="{% static 'assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>  
+<script>  
+    $(document).ready(function(){  
+        $("#indexform").validate({
+            rules: {
+                mobile: {
+                    required: true,
+                    number: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                mobile: {
+                    required: "specify number"
+                },
+                password: {
+                    required: "specify password"
+                }
+            }  
+        });
+    }); 
+</script> 
+    <style>
+        input::placeholder {
+       color: white; 
+        }
+    </style>
+</head>
+
+<body style="background-image:url('../static/images/farm3.jpg');background-size: cover; height: 593px; margin: 0;">
+<div style="background-color: rgba(0, 0, 0, 0.5); height: 603px;margin-top: -10px;">
+<a href="/"><button class="btn btn-outline-light" style="margin-left: 1000px;margin-top:20px;">Back</button></a>
+  <div class="sufee-login d-flex align-content-center flex-wrap" style="margin-top: 10px; width: 500px;margin-left: 375px;">
+      <div class="container">
+          <div class="login-content">
+
+              <div class="bg-transparent card login-form" style="border-color: white;">
+                  <form action="/index/" method="POST" id="indexform">
+                    {% csrf_token %}
+                      <div class="form-group">
+                          <label class="text-white">Mobile No.</label>
+                          <input type="number" name="mobile" id="mobile" class="form-control bg-transparent"  />
+                      </div>
+                      <div class="form-group">
+                          <label class="text-white">Password</label>
+                          <input type="password" name="password" id="password" class="form-control bg-transparent" />
+                      </div>
+                      <div class="checkbox">
+                          <label class="text-white">
+                              <input type="checkbox"> Remember Me
+                          </label>
+                          <label class="pull-right">
+                              <a href="/forget/" class="text-white">Forgotten Password?</a>
+                          </label>
+
+                      </div>
+                        <button type="submit" name="signin" id="signin" class="btn btn-success btn-flat m-b-30 m-t-30"> Sign in</button>
+                      
+                      <div class="register-link m-t-15 text-center">
+                          <p class="text-white">Don't have account ? <a href="/register/" class="text-white"> Sign Up Here</a></p>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+    
+
+</body>
+</html>

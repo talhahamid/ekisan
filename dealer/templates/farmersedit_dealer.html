@@ -1,0 +1,68 @@
+{% include 'menudealer.html' %}
+
+<div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% include 'header.html' %}
+            </div>    
+        </div>    
+        <div class="row">
+            <div class="col">
+            <div class="login-content"> 
+                <div class="login-form">
+                    <h3>Edit Farmers</h3><hr><br>
+                    <form method="post" action="dealers/farmersupdate/">
+                        <input type="hidden" name="id" value="<?php echo $farmers['id']; ?>">
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">
+                                    NAME
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" name="name" value="<?php echo $farmers['name']; ?>" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">
+                                    CROP
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" name="crop" value="<?php echo $farmers['crop']; ?>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">
+                                    RATE
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" name="rate" value="<?php echo $farmers['rate']; ?>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label class=" form-control-label">
+                                    TOTAL PRICE
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" name="total price" value="<?php echo $farmers['total_price']; ?>" class="form-control">
+                            </div>
+                        </div>
+                        <br><hr>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">EDIT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>    
+    {% include 'footer.html' %}
+    

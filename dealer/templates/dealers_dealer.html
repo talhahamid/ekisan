@@ -1,0 +1,69 @@
+{% include 'menudealer.html' %}
+{% include 'dealerheader.html' %}
+
+<body>
+    <div class="content lg-12">
+        <div id="right-panel" class="right-panel">
+            <!-- Header-->
+            <header id="header" class="header" style="width: 1050px;">
+
+            </header>
+        </div>
+
+
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Data Table</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table"
+                                    class="table table-striped table-bordered dataTable no-footer" role="grid"
+                                    aria-describedby="bootstrap-data-table_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting" aria-controls="bootstrap-data-table"
+                                                style="width: 200px;">Name</th>
+                                            <th class="sorting" aria-controls="bootstrap-data-table"
+                                                style="width: 335px;">Address</th>
+                                            <th class="sorting" aria-controls="bootstrap-data-table"
+                                                style="width: 148px;">City</th>
+                                            <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">State</th>                                            
+                                            <th class="sorting" aria-controls="bootstrap-data-table"
+                                                style="width: 121px;">Mobile</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for farmer in farmers %}
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1">{{farmer.name}}</td>
+                                            <td>{{farmer.address}}</td>
+                                            <td>{{farmer.city}}</td>
+                                            <td>{{farmer.state}}</td>
+                                            <td>{{farmer.mobile}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div>
+
+    </div>
+
+
+
+    {% include 'footer.html' %}
+
+
+</body>
+
+</html>

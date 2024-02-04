@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Plans</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .subscription-container { 
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscription-card {
+            border: 2px solid white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .subscription-card:hover {
+            border-color: white;
+            box-shadow: 0 0 50px #46eb96d7;
+        }
+
+        .btn-subscribe {
+            border: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-subscribe:hover {
+            background-color: #46eb96d7;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div
+        style="background-image: url('../../static/images/farm3.jpg');overflow-y: hidden; background-size: cover; height: 593px; margin: 0;">
+        <div style="background-color: rgba(0, 0, 0, 0.6); margin-top: -50px; height: 593px;">
+            <div class="bg-transparent container subscription-container" style="margin-left: 300px;">
+                <a href="/"><button class="btn btn-outline-light" style="margin-left: 700px;margin-top:20px;">Back</button></a>
+                <h2 class=" mb-4 text-white" style="margin-top: 10px;margin-left:100px">Choose a Subscription Plan</h2>
+                <div style="margin-left: -200px;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="bg-transparent card subscription-card">
+                                <h5 class="card-title text-white p-1 rounded"
+                                    style="margin-left: 51px;margin-right: 75px;">Free</h5>
+                                <hr class="bg-white">
+                                <p class="card-text">
+                                <p class="card-text text-white">can make 1 bit</p>
+                                <p class="card-text text-white">can add 1 product</p>
+                                </p>
+                                <hr class="bg-white">
+                                <h3 class="text-center text-white">Free / 3 Days</h3>
+                                <a href="/farmer/freeplan/"><button class="btn btn-subscribe btn-block">Subscribe</button></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="bg-transparent card subscription-card">
+                                <h5 class="card-title text-white p-1 rounded"
+                                    style="margin-left: 57px;margin-right: 60px;">Basic </h5>
+                                <hr class="bg-white">
+                                <p class="card-text text-white">
+                                <p class="card-text text-white">can make 4 bits</p>
+                                <p class="card-text text-white">can add 4 products</p>
+                                </p>
+                                <hr class="bg-white">
+                                <h3 class="text-center text-white">&#8377;499/month</h3>
+                                <a href="/farmer/basicplan/499"><button class="btn btn-subscribe btn-block">Subscribe</button></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="bg-transparent card subscription-card">
+                                <h5 class="card-title text-white p-1 rounded"
+                                    style="margin-left: 40px;margin-right: 40px;">Standard</h5>
+                                <hr class="bg-white">
+                                <p class="card-text text-white">
+                                <p class="card-text text-white">can make 10 bits</p>
+                                <p class="card-text text-white">can add 10 products</p>
+                                </p>
+                                <hr class="bg-white">
+                                <h3 class="text-center text-white">&#8377;999/month</h3>
+                                <a href="/farmer/standardplan/999"><button class="btn btn-subscribe btn-block">Subscribe</button></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="bg-transparent card subscription-card" style="height: 350px;">
+                                <h5 class="card-title text-white p-1 rounded"
+                                    style="margin-left: 40px;margin-right: 40px;">Premium</h5>
+                                <hr class="bg-white">
+                                <p class="card-text text-white" style="margin-top: -10px;">
+                                <p class="card-text text-white">can make unlimited bits</p>
+                                <p class="card-text text-white">can add unlimited products</p>
+                                <hr class="bg-white" style="margin-top: 10px;">
+                                <h3 class="text-center text-white" style="margin-top: 5px;">&#8377;1499/month</h3>
+                                <a href="/farmer/premiumplan/1499"><button class="btn btn-subscribe btn-block">Subscribe</button></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_bX75Gd98qBwkpY", // Enter the Key ID generated from the Dashboard
+            "amount": "{{payment.amount}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "EKisan",
+            "description": "Subsription",
+            "image": "https://example.com/your_logo",
+            "order_id": "{{payment.id}}", //This is a sample Order ID. Pass the id obtained in the response of Step 1
+            "handler": function (response) {
+                window.location.href = `http://localhost:8000/subscription/success/?id={{payment.id}}`
+             },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response) {
+            alert("hiii");
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+        });
+        document.getElementById('rzp-button1').onclick = function (e) {
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+    
+</body>
+
+</html>

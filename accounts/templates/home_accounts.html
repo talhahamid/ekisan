@@ -1,0 +1,239 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang=""> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-KISAN</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="apple-touch-icon" href="{% static 'apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/cs-skin-elastic.css' %}">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="{% static 'assets/scss/style.css' %}">
+    <link href="{% static 'assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .slider-container {
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
+
+    .slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .card {
+        width: 300px;
+        margin: 0 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .card img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .slider-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+    }
+
+    .slider-controls button {
+        background-color: transparent;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    
+</style>
+</head>
+<body>
+ 
+
+<div id="right-panel" class="right-panel">
+     
+    <div style="background-image: url('../static/images/farm3.jpg');  backdrop-filter: blur(100px); overflow-y: hidden; background-size: cover; height: 593px; margin: 0;">
+    <div style="background-color: rgba(0, 0, 0, 0.5);">
+        <h3 class="text-white" style="position: fixed; margin-left: 30px;padding-top: 30px;">E-KISAN</h3>
+        <!-- <a href="/subscription/"><button class="btn btn-outline-light rounded"
+                style="position: fixed;padding-left: 20px;padding-right: 20px;padding-top: 5px;padding-bottom: 5px; margin-left: 10px;margin-top: 30px;margin-left: 855px">Subscriptions
+                </button></a> -->
+    <a href="/index/"><button class="btn btn-outline-light rounded" style="position: fixed; padding-left: 20px;padding-right: 20px;padding-top: 5px;padding-bottom: 5px; margin-left: 1000px;margin-top: 30px;">Sign In</button></a>
+    <a href="/register/"><button class="btn btn-outline-light rounded"
+            style="position: fixed;padding-left: 20px;padding-right: 20px;padding-top: 5px;padding-bottom: 5px; margin-left: 10px;margin-top: 30px;margin-left: 1100px">Sign
+            Up</button></a>
+    <br><br><br><br>
+    
+    <table style="margin-left: 300px;">
+        <tr>
+            <th style="text-align: center;">
+                <div class="bg-transparent card shadow-lg rounded p-4" style=" border-color: white;width: 150px; margin-left: 100px; height: 100px;">
+                    <h4 class="text-white">FARMERS</h4>
+                    <h4 class="text-white" style="margin-top: 10px;">75,000</h4>
+                </div>
+            </th>
+            <th style="text-align: center;">
+                <div class="bg-transparent card shadow-lg rounded p-4" style=" border-color: white;width: 150px; margin-left: 100px; height: 100px;">
+                    <h4 class="text-white">DEALERS</h4>
+                    <h4 class="text-white" style="margin-top: 10px;">50,000</h4>
+                </div>
+            </th>
+        </tr>
+    </table>
+
+   
+
+    <div class="bg-transparent card" style="margin-top:50px;margin-left: 355px ;border-color: white; height: 150px;width: 500px;">
+       
+        <div class="card-body text-white">
+            <p class="text-white">Ram accepted bit of James on Apple for 200Rs</p>
+            <p class="text-white">John accepted bit of Tony on Cabbage for 100Rs</p>
+            <p class="text-white">Sunil accepted bit of Rehman on Carrot for 140Rs</p>
+        </div>
+    </div>
+<br><br><br><br>
+
+<div class="slider-container" style="margin-top: -30px;" >
+    <div class="slider" style="height: 80px; width: 900px; margin-left: 150px;">
+        <div class="card bg-transparent" style="border-color: white;width: 150px;">
+            <div class="card-content">
+                <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+            </div>
+        </div>
+        <div class="card bg-transparent" style="border-color: white;width: 150px;">
+            <div class="card-content">
+                <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+            </div>
+        </div>
+                <div class="card bg-transparent" style="border-color: white;width: 150px;">
+                    <div class="card-content">
+                        <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                        <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                        <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+                    </div>
+                </div>
+
+                <div class="card bg-transparent" style="border-color: white;width: 150px;">
+                    <div class="card-content">
+                        <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                        <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                        <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+                    </div>
+                </div>
+                <div class="card bg-transparent" style="border-color: white;width: 150px;">
+                    <div class="card-content">
+                        <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                        <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                        <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+                    </div>
+                </div>
+                        <div class="card bg-transparent" style="border-color: white;width: 150px;">
+                            <div class="card-content">
+                                <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                                <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                                <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+                            </div>
+                        </div>
+                                <div class="card bg-transparent" style="border-color: white;width: 150px;">
+                                    <div class="card-content">
+                                        <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                                        <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                                        <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+                                    </div>
+                                </div>
+                                <div class="card bg-transparent" style="border-color: white;width: 150px;">
+                                    <div class="card-content">
+                                        <div class="card-title text-white" style="margin-top: -10px; font-size: 14px;">Apple</div>
+                                        <p class="text-white" style="margin-top: -5px; font-size: 12px;">2000Kgs</p>
+                                        <p class="text-white" style="margin-top: -20px; font-size: 12px;">200RS</p>
+                                    </div>
+                                </div>
+        <!-- Add more cards as needed -->
+    </div>
+
+    <div class="slider-controls" style="margin-top: -250px;">
+        <button class="prev" onclick="prevSlide()" style="margin-left: 140px;">❮</button>
+        <button onclick="nextSlide()" style="margin-right: 220px;">❯</button>
+    </div>
+</div>
+
+<p style="text-align: center;position: fixed;bottom: 0;" class="text-white">E-KISAN - @copyright-2022</p>
+</div>    
+</div>
+</div>
+<script>
+    let currentIndex = 0;
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % document.querySelectorAll('.card').length;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + document.querySelectorAll('.card').length) % document.querySelectorAll('.card').length;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const slider = document.querySelector('.slider');
+        const cardWidth = document.querySelector('.card').offsetWidth;
+        slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+    }
+</script>
+
+
+    <script src="{% static 'assets/js/lib/chart-js/Chart.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/dashboard.js' %}"></script>
+    <script src="{% static 'assets/js/widgets.js' %}"></script>
+    <script src="{% static 'assets/js/lib/vector-map/jquery.vmap.js' %}"></script>
+    <script src="{% static 'assets/js/lib/vector-map/jquery.vmap.min.js' %}"></script>
+    <script src="{% static 'assets/js/lib/vector-map/jquery.vmap.sampledata.js' %}"></script>
+    <script src="{% static 'assets/js/lib/vector-map/country/jquery.vmap.world.js' %}"></script>
+    
+
+</body>
+</html>
