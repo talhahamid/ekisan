@@ -2,14 +2,18 @@ from django.shortcuts import render,redirect
 from accounts.models import User,Subscription
 from farmer.models import Product,Tracking
 from django.shortcuts import render, get_list_or_404
-from dealer.models import Bit
+from dealer.models import Bit,DealerProfilepic
 from django.http import JsonResponse,HttpResponse
 from farmer.models import Message
 import razorpay
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime, timedelta
+import os
 # Create your views here.
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import make_password
+from django.http import Http404
 
 
 def buy(request):
@@ -103,12 +107,12 @@ def addbuy(request):
         user_name = user.name
     return render(request, 'addbuy_dealer.html',{'user_name':user_name})
 
-def buyvegetables(request):
+def vegitables(request):
     user_id = request.session.get('user_id')
     if user_id:
         user = User.objects.get(pk=user_id)
         user_name = user.name
-    return render(request,'buyvegetables_dealer.html',{'user_name':user_name}) 
+    return render(request,'vegitables_dealer.html',{'user_name':user_name}) 
 
 def fruits(request):
     user_id = request.session.get('user_id')
@@ -124,6 +128,152 @@ def crops(request):
         user_name = user.name    
     return render(request,'crops_dealer.html',{'user_name':user_name}) 
 
+
+
+def herb(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'herb_dealer.html',{'user_name':user_name}) 
+
+
+def nuts(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'nuts_dealer.html',{'user_name':user_name}) 
+
+def grains(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'grains_dealer.html',{'user_name':user_name}) 
+
+
+def legumes(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'legumes_dealer.html',{'user_name':user_name}) 
+
+
+def tubers(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'tubers_dealer.html',{'user_name':user_name}) 
+
+
+def berries(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'berries_dealer.html',{'user_name':user_name}) 
+
+
+def flowers(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'flowers_dealer.html',{'user_name':user_name}) 
+
+
+def leafygreens(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'leafygreens_dealer.html',{'user_name':user_name}) 
+
+
+def roots(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'roots_dealer.html',{'user_name':user_name}) 
+
+
+
+def spices(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'spices_dealer.html',{'user_name':user_name}) 
+
+
+
+def medicinalplants(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'medicinalplants_dealer.html',{'user_name':user_name}) 
+
+
+
+def mushrooms(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'mushrooms_dealer.html',{'user_name':user_name}) 
+
+
+
+def pulses(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'pulses_dealer.html',{'user_name':user_name}) 
+
+
+
+
+def oilseeds(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'oilseeds_dealer.html',{'user_name':user_name}) 
+
+
+def covercrops(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'covercrops_dealer.html',{'user_name':user_name}) 
+
+
+
+def condiments(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'condiments_dealer.html',{'user_name':user_name}) 
+
+
+
+def exoticplants(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'exoticplants_dealer.html',{'user_name':user_name}) 
+
+
+
 def dealers(request):
     user_id = request.session.get('user_id')
     if user_id:
@@ -133,22 +283,208 @@ def dealers(request):
     return render(request, 'dealers_dealer.html', {'farmers': farmers,'user_name':user_name})
 
 def dealersprofile(request):
-    user_id = request.session.get('user_id')
-    if user_id is not None:
-        profile = User.objects.get(id=user_id)
-        try:        
-                subscription=Subscription.objects.get(user=user_id)
-                plantype=subscription.planname
-                if plantype=='free':
-                    if (subscription is not None):
-                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription})
+        user_id = request.session.get('user_id')
+        if user_id is not None:
+                profile = User.objects.get(id=user_id)
+                profilepic = None
+                try:        
+                        subscription=Subscription.objects.get(user=user_id)
+                        plantype=subscription.planname
+                        date=subscription.date
+                        expiry_date=subscription.expiry_date
+                        user_id = request.session.get('user_id')
+                        user=User.objects.get(id=user_id)
+                        profilepic=DealerProfilepic.objects.get(user=user)
+                        if plantype=='free':
+                                if (subscription is not None):
+                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})
+                        else:
+                                expiry_date=date + timedelta(days=30)
+                                if (subscription is not None):
+                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})    
+                except ObjectDoesNotExist:
+                       return render(request, 'dealerprofile_dealer.html', {'profile': profile,'profilepic':profilepic})
+        else:
+                return render(request, 'index.html')
+        
+
+
+
+        
+def editdealerprofile(request,id):
+       dealer=User.objects.get(id=id)
+       return render(request,'editdealerprofile_dealer.html',{'dealer':dealer})       
+
+def updatedealerprofile(request,id):
+       user=User.objects.get(id=id)
+       if request.method=='POST':
+              user.name=request.POST['name']
+              user.address=request.POST['address']
+              user.city=request.POST['city']
+              user.state=request.POST['state']
+              user.email=request.POST['email']
+              user.save()
+              user_id = request.session.get('user_id')
+              if user_id is not None:
+                        profile = User.objects.get(id=user_id)
+                        try:        
+                                subscription=Subscription.objects.get(user=user_id)
+                                plantype=subscription.planname
+                                date=subscription.date
+                                expiry_date=subscription.expiry_date
+                                if plantype=='free':
+                                        if (subscription is not None):
+                                                return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription})
+                                else:
+                                        expiry_date=date + timedelta(days=30)
+                                        if (subscription is not None):
+                                                return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription})    
+                        except ObjectDoesNotExist:
+                         return render(request, 'dealerprofile_dealer.html', {'profile': profile})
+              else:
+                        return render(request, 'index.html')       
+       return redirect(('dealerprofile')) 
+
+
+def changepassword(request):
+    if request.method == 'POST':
+        user_id = request.session.get('user_id')
+        user = User.objects.get(id=user_id)
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        confirm_new_password = request.POST.get('confirm_new_password')
+        
+        # Retrieve the hashed password from the database
+        password_from_db = user.password
+        
+        if new_password == confirm_new_password:
+                # Verify the current password
+                if check_password(current_password, user.password):
+                        # Hash the new password before saving it
+                        hashed_password = make_password(new_password)
+                        user.password = hashed_password
+                        user.save()
+                        messages = 'Password successfully changed.'
+
+                        user_id = request.session.get('user_id')
+                        if user_id is not None:
+                                profile = User.objects.get(id=user_id)
+                                try:        
+                                        subscription=Subscription.objects.get(user=user_id)
+                                        plantype=subscription.planname
+                                        date=subscription.date
+                                        expiry_date=subscription.expiry_date
+                                        if plantype=='free':
+                                                if (subscription is not None):
+                                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'messages':messages})
+                                        else:
+                                                expiry_date=date + timedelta(days=30)
+                                                if (subscription is not None):
+                                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'messages':messages})    
+                                except ObjectDoesNotExist:
+                                        profile = User.objects.get(id=user_id)
+                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'messages':messages})
+                        else:
+                                return render(request, 'index.html')   
+        return render(request, 'dealerprofile_dealer.html')
+
+
+def dealerprofilepic(request):
+        user_id = request.session.get('user_id')
+        user=User.objects.get(id=user_id)
+        try:    
+                
+                profile=DealerProfilepic.objects.get(user=user)
+                if profile:
+                        profile.profilepic=request.FILES['profilepic']
+                        profile.save()
+                        file_name = profile.profilepic.name
+                        file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+                        with open(file_path, 'wb') as destination:
+                                for chunk in profile.profilepic.chunks():
+                                        destination.write(chunk)  
+                        user_id = request.session.get('user_id')
+                        if user_id is not None:
+                                profile = User.objects.get(id=user_id)
+                                try:        
+                                        subscription=Subscription.objects.get(user=user_id)
+                                        plantype=subscription.planname
+                                        date=subscription.date
+                                        expiry_date=subscription.expiry_date
+                                        profilepic=DealerProfilepic.objects.get(user=user)
+                                        if plantype=='free':
+                                                if (subscription is not None):
+                                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})
+                                        else:
+                                                expiry_date=date + timedelta(days=30)
+                                                if (subscription is not None):
+                                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})    
+                                except ObjectDoesNotExist:
+                                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'profilepic':profilepic})
+                        else:
+                                return render(request, 'index.html') 
                 else:
-                    if (subscription is not None):
-                        return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription})    
-        except ObjectDoesNotExist:
-                return render(request, 'dealerprofile_dealer.html', {'profile': profile})
-    else:
-        return render(request, 'index.html')
+                    profilepic=request.FILES['profilepic']
+                    profile=DealerProfilepic(profilepic=profilepic,user=user)
+                    profile.save() 
+                    file_name = profile.profilepic.name
+                    file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+                    with open(file_path, 'wb') as destination:
+                            for chunk in profile.profilepic.chunks():
+                                    destination.write(chunk)  
+                    user_id = request.session.get('user_id')
+                    if user_id is not None:
+                            profile = User.objects.get(id=user_id)
+                            try:        
+                                    subscription=Subscription.objects.get(user=user_id)
+                                    plantype=subscription.planname
+                                    date=subscription.date
+                                    expiry_date=subscription.expiry_date
+                                    if plantype=='free':
+                                            if (subscription is not None):
+                                                    return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})
+                                    else:
+                                            expiry_date=date + timedelta(days=30)
+                                            if (subscription is not None):
+                                                    return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})    
+                            except ObjectDoesNotExist:
+                                return render(request, 'dealerprofile_dealer.html', {'profile': profile,'profilepic':profilepic})
+                    else:
+                            return render(request, 'index.html')                     
+
+        except:                        
+                print('hey')
+                profilepic=request.FILES['profilepic']
+                profile=DealerProfilepic(profilepic=profilepic,user=user)
+                profile.save() 
+                file_name = profile.profilepic.name
+                file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+                with open(file_path, 'wb') as destination:
+                        for chunk in profile.profilepic.chunks():
+                                destination.write(chunk)  
+                user_id = request.session.get('user_id')
+                if user_id is not None:
+                        profile = User.objects.get(id=user_id)
+                        try:        
+                                subscription=Subscription.objects.get(user=user_id)
+                                plantype=subscription.planname
+                                date=subscription.date
+                                expiry_date=subscription.expiry_date
+                                if plantype=='free':
+                                        if (subscription is not None):
+                                                return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})
+                                else:
+                                        expiry_date=date + timedelta(days=30)
+                                        if (subscription is not None):
+                                                return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'profilepic':profilepic})    
+                        except ObjectDoesNotExist:
+                         return render(request, 'dealerprofile_dealer.html', {'profile': profile,'profilepic':profilepic})
+                else:
+                        return render(request, 'index.html')        
+        return render(request,'dealerprofile_dealer.html')
+
+
+
 
 def delivery(request):
     user_id = request.session.get('user_id')
@@ -205,24 +541,44 @@ def farmersedit(request):
     return render(request, 'farmersedit_dealer.html') 
 
 def productcategory(request):
-    return render(request, 'productcategory_dealer.html')
-
-def productcategorylist(request):
-    return render(request, 'productcategorylist_dealer.html')
-   
-def productlist(request,fruit):
     user_id = request.session.get('user_id')
     if user_id:
         user = User.objects.get(pk=user_id)
-        user_name = user.name
-    fruit_data = get_list_or_404(Product, product_name=fruit)
-    return render(request, 'productlist_dealer.html', {'fruit_data': fruit_data, 'fruit': fruit,'user_name':user_name})
+        user_name = user.name   
+    return render(request, 'productcategory_dealer.html',{'user_name':user_name})
+
+def productcategorylist(request):
+    user_id = request.session.get('user_id')
+    if user_id:
+        user = User.objects.get(pk=user_id)
+        user_name = user.name   
+    user=User.objects.get(id=user_id)
+    products=Bit.objects.filter(farmer_id=user,status=True)    
+    return render(request, 'productcategorylist_dealer.html',{'user_name':user_name,'products':products})
+   
+def productlist(request,fruit):
+        try:
+                user_id = request.session.get('user_id')
+                if user_id:
+                        user = User.objects.get(pk=user_id)
+                        user_name = user.name
+                fruit_data = get_list_or_404(Product, product_name=fruit)
+                return render(request, 'productlist_dealer.html', {'fruit_data': fruit_data, 'fruit': fruit,'user_name':user_name})
+        except Http404:
+                fruit_data = []  
+                user_id = request.session.get('user_id')
+                if user_id:
+                        user = User.objects.get(pk=user_id)
+                        user_name = user.name
+                return render(request, 'productlist_dealer.html', {'fruit_data': fruit_data, 'fruit': fruit,'user_name':user_name})
+        return render(request, 'productlist_dealer.html', {'fruit_data': fruit_data, 'fruit': fruit,'user_name':user_name})
 
 def transactions(request):
     return render(request, 'transactionsdealer_dealer.html')    
 
-def bit(request, user_name, product_name, product_type, quality, rate, quantity):
+def bit(request, user_id, user_name, product_name, product_type, quality, rate, quantity):
      context = {
+        'user_id': user_id,     
         'user_name': user_name,
         'product_name': product_name,
         'product_type': product_type,
@@ -232,7 +588,7 @@ def bit(request, user_name, product_name, product_type, quality, rate, quantity)
     }
      return render(request,'bit_dealer.html',context)
 
-def process_bit(request):
+def process_bit(request,id):
     user_id = request.session.get('user_id')
     if user_id:
         user = User.objects.get(pk=user_id)
@@ -250,6 +606,7 @@ def process_bit(request):
         farmer=User.objects.get(name=farmer)
         farmer_address=farmer.address
         Bit.objects.create(
+            farmer_id=id,   
             farmer=farmer,
             product=product,
             product_type=product_type,
@@ -274,7 +631,7 @@ def mybits(request):
     if user_id:
         try:
             user = User.objects.get(id=user_id)
-            bit_data = Bit.objects.filter(bitter=user).values('product','farmer', 'product_type', 'quantity', 'rate', 'quality', 'bit_value')
+            bit_data = Bit.objects.filter(farmer_id=user).values('product','farmer', 'product_type', 'quantity', 'rate', 'quality', 'bit_value')
             print('het',bit_data)
             bit = {}
             for entry in bit_data:
@@ -343,7 +700,10 @@ def subscription(request):
                                         return render(request, 'dealerprofile_dealer.html', {'profile': profile,'subscription':subscription,'expiry_date':expiry_date})
                                 
         except ObjectDoesNotExist:
-                return render(request,'subscription_dealer.html')
+                user_id=request.session.get('user_id')
+                user=User.objects.get(id=user_id)
+                name=user.name
+                return render(request,'subscription_dealer.html',{'name':name})
 
 
 
@@ -355,7 +715,9 @@ def freeplan(request):
         existing_subscription = Subscription.objects.filter(user_id=user, planname=planname).first()
 
         if not existing_subscription:
-                new_subscription = Subscription(planname=planname, user_id=user, amount=amount, date=date)
+                current_date = datetime.now().date()
+                expiry_date = current_date + timedelta(days=3)  
+                new_subscription = Subscription(planname=planname, user_id=user, amount=amount, date=date,expiry_date=expiry_date)
                 new_subscription.save()
         else:
                 pass
@@ -411,3 +773,20 @@ def success(request):
     subs.is_paid=True
     subs.save()
     return HttpResponse('Payment Success')
+
+def sales(request):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        return render(request,'sales_dealer.html',{'user_name':user_name})
+
+
+
+def productslist(request,fruit):
+        user_id = request.session.get('user_id')
+        if user_id:
+                user = User.objects.get(pk=user_id)
+                user_name = user.name
+        #fruit_data = get_list_or_404(Product, product_name=fruit)
+        return render(request, 'productslist_dealer.html', {'fruit': fruit,'user_name':user_name}) #'fruit_data': fruit_data, 

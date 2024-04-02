@@ -11,7 +11,7 @@ class User(models.Model):
     pincode = models.CharField(max_length=6)
     mobile = models.CharField(max_length=10, unique=True)
     email = models.EmailField(max_length=255, unique=True)
-    password = models.CharField(max_length=50)
+    password = models.CharField(max_length=255)
     ROLE_CHOICES = (
         ('farmer', 'Farmer'),
         ('dealer', 'Dealer'),
@@ -28,6 +28,9 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+class Profilepic(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    profilepic=models.CharField(max_length=100)
 
 class Subscription(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)

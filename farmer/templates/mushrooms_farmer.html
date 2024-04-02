@@ -1,0 +1,270 @@
+{% include 'menu.html' %}
+<head>
+<style>
+        .card {
+            height: 120px;
+            width: 200px;
+            margin-bottom: 50px;
+            margin-right: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+                margin-left: 60px;
+                margin-bottom: 20px;
+            }
+
+            .card:nth-child(odd) {
+                clear: both; 
+            }
+        }
+    </style>
+ </head>   
+<body style="background-color: LightGray;">
+
+    {% include 'header.html' %}
+
+    <br><br><br>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Button mushroom">
+             <div class="card" style="height: 200px; width: 200px; margin-right: 10px; ">
+                <h4 style="margin-left: 10px; margin-top: 15px;">Button mushroom</h4>
+                <h4 style="margin-left: 50px; margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/button_mushroom.jpeg" height="125px" alt="Carrot Image">
+                </div>
+             </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Shiitake mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 15px;">Shiitake mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/shiitake_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Portobello mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Portobello mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/portobello_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Oyster mushroom">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Oyster mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/oyster_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Cremini mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Cremini mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/cremini_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Chanterelle mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Chanterelle mushroom</h4>
+                <h4 style="margin-left:10px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/chanterelle_mushroom.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Porcini mushroom">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Porcini mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/porcini_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Morel mushroom">
+            <div class="card " style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Morel mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/morel_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Enoki mushroom">
+            <div class="card " style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Enoki mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/enoki_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Maitake mushroom">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Maitake mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/Maitake_mushroom.avif" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Lion's mane mushroom">
+             <div class="card" style="height: 200px; width: 200px; margin-right: 10px; ">
+                <h4 style="margin-left: 0px; margin-top: 15px;">Lion's mane mushroom</h4>
+                <h4 style="margin-left: 50px; margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/lion's_mane_mushroom.jpeg" height="125px" alt="Carrot Image">
+                </div>
+             </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Reishi mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 15px;">Reishi mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/reishi_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Matsutake mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Matsutake mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/matsutake_mushroom.avif" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Wood ear mushroom">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Wood ear mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/wood_ear_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Beech mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Beech mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/beech_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=King trumpet mushroom">
+             <div class="card" style="height: 200px; width: 200px; margin-right: 10px; ">
+                <h4 style="margin-left: 0px; margin-top: 15px;">King trumpet mushroom</h4>
+                <h4 style="margin-left: 50px; margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/king_trumpet_mushroom.jpeg" height="125px" alt="Carrot Image">
+                </div>
+             </div>
+            </a>
+        </div>
+    </div>    
+
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Hedgehog mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 15px;">Hedgehog mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/hedgehog_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Black trumpet mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;font-size: 15px;">Black trumpet mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/black_trumpet_mushroom.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Coral mushroom">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Coral mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/coral_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Turkey tail mushroom">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h4 style="margin-left:0px;margin-top: 25px;">Turkey tail mushroom</h4>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/turkey_tail_mushroom.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+
+    </div>
+
+</div> <br><br>
+
+    {% include 'footer.html' %}

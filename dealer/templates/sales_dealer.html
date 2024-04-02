@@ -1,0 +1,66 @@
+{% include 'menudealer.html' %}
+<head>
+   <style>
+        .card {
+            height: 120px;
+            width: 200px;
+            margin-bottom: 50px;
+            margin-right: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+                margin-left: 60px;
+                margin-bottom: 20px;
+            }
+
+            .card:nth-child(odd) {
+                clear: both; 
+            }
+        }
+    </style>
+</head>
+<body style="background-color: LightGray;">
+
+{% include 'dealerheader.html' %}
+
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+                <a href="/dealer/productslist/Other Dealers/">
+                    <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightpink;">
+                        <h3 style="margin-left:5px;margin-top: 25px;">Other Dealers</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/dealer/productslist/Retailers/">
+                    <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightblue;">
+                        <h3 style="margin-left:25px;margin-top: 25px;">Retailers</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/dealer/productslist/Companies/">
+                <div class="card rounded text-white shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightcoral;">
+                    <h3 style="margin-left:25px;margin-top: 25px;">Companies</h3>
+                </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/farmer/productslist/Suppliers/">
+                <div class="card rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightcyan;">
+                    <h3 style="margin-left:25px;margin-top: 25px;">Suppliers</h3>
+                </div>
+                </a>
+            </div>
+            
+        </div>
+        <br><br><br><br>
+    </div>
+
+{% include 'dealerfooter.html' %}    

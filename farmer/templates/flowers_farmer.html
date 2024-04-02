@@ -1,0 +1,269 @@
+{% include 'menu.html' %}
+<head>
+<style>
+        .card {
+            height: 120px;
+            width: 200px;
+            margin-bottom: 50px;
+            margin-right: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+                margin-left: 60px;
+                margin-bottom: 20px;
+            }
+
+            .card:nth-child(odd) {
+                clear: both; 
+            }
+        }
+    </style>
+ </head>  
+<body style="background-color: LightGray;">
+
+    {% include 'header.html' %}
+
+    <br><br><br>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Rose">
+             <div class="card" style="height: 200px; width: 200px; margin-right: 10px; ">
+                <h3 style="margin-left: 50px; margin-top: 15px;">Rose</h3>
+                <h4 style="margin-left: 50px; margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/rose.jpeg" height="125px" alt="Carrot Image">
+                </div>
+             </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Tulip">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 15px;">Tulip</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/tulip.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Daisy">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Daisy</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/daisy.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Lily">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Lily</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/lily.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>    
+    
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Sunflower">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Sunflower</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/sunflower.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Orchid">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:25px;margin-top: 25px;">Orchid</h3>
+                <h4 style="margin-left:10px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/orchid.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Iris">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Iris</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/iris.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Gerbera">
+            <div class="card " style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Gerbera</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/gerbera.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>    
+
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Carnation">
+            <div class="card " style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:25px;margin-top: 25px;">Carnation</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/carnation.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        <div>
+        <div class="col-md-3">   
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Peony">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Peony</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/peony.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Hydrangea">
+             <div class="card" style="height: 200px; width: 200px; margin-right: 10px; ">
+                <h3 style="margin-left: 25px; margin-top: 15px;">Hydrangea</h3>
+                <h4 style="margin-left: 50px; margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/hydrangea.jpg" height="125px" alt="Carrot Image">
+                </div>
+             </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Chrysanthemum">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:0px;margin-top: 15px;font-size: 25px;">Chrysanthemum</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/chrysanthemum.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Lavender">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Lavender</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/lavender.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Pansy">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Pansy</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/pansy.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Dahlia">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Dahlia</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/dahlia.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Marigold">
+             <div class="card" style="height: 200px; width: 200px; margin-right: 10px; ">
+                <h3 style="margin-left: 50px; margin-top: 15px;">Marigold</h3>
+                <h4 style="margin-left: 50px; margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/marigold.jpeg" height="125px" alt="Carrot Image">
+                </div>
+             </div>
+            </a>
+        </div>
+    </div>    
+
+    <div class="row">
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Snapdragon">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:25px;margin-top: 15px;">Snapdragon</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/snapdragon.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Petunia">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Petunia</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/petunia.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'farmer:productpriceadd' %}?fruit=Zinnia">
+            <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Zinnia</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/zinnia.jpg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+                <a href="{% url 'farmer:productpriceadd' %}?fruit=Daffodil">
+            <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
+                <h3 style="margin-left:50px;margin-top: 25px;">Daffodil</h3>
+                <h4 style="margin-left:50px;margin-top: 5px;"></h4>
+                <div class="image-container">
+                    <img src="../../static/images/draffodil.jpeg" height="125px" width="225px" alt="Carrot Image">
+                </div>
+            </div>
+            </a>
+        </div>
+
+    </div>
+</div> <br><br>
+
+    {% include 'footer.html' %}

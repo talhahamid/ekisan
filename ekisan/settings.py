@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-bv@*m=fn+=4enh9brpji-7dh*thv#8g4eq506hve(ji_pox=i6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'farmer.apps.FarmerConfig',
     'dealer.apps.DealerConfig',
+    'seller.apps.SellerConfig',
     'deliveryman.apps.DeliverymanConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,8 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'farmer.middleware.middleware.AuthMiddleware1',
-    'dealer.middleware.middleware.AuthMiddleware2',
+    #'farmer.middleware.middleware.AuthMiddleware1',
+    #'dealer.middleware.middleware.AuthMiddleware2',
 
 ]
 
@@ -133,11 +134,18 @@ STATICFILES_DIRS=[
 ]
 STATIC_ROOT= os.path.join(BASE_DIR, 'assets')
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+if not os.path.exists(MEDIA_ROOT):
+    os.makedirs(MEDIA_ROOT)
+    
 ASGI_APPLICATION = 'ekisan.routing.application'
 
 RAZORPAY_KEY_ID= 'rzp_test_ZJnfFgi9V8tgCE'
@@ -146,3 +154,11 @@ RAZORPAY_KEY_SECRET= 'ItM5DIKdXHVXXUrNusMXTOvN'
 GOOGLE_MAPS_API_KEY ='AIzaSyA4ok42pz99BZiplrtRQHs4kzCVQH_fxfQ'
 KEY='2GYalXMe31736j6Cz6lRiRHC5N1Yc4zn',
 URL='https://www.mapquestapi.com/geocoding/v1/address?key='
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP server host
+EMAIL_PORT = 587  # SMTP server port (usually 587 for TLS/STARTTLS)
+EMAIL_USE_TLS = True  # Whether to use TLS/STARTTLS for secure connection
+EMAIL_HOST_USER = 'talhahamid.syed@gmail.com'  # Your Gmail email address
+EMAIL_HOST_PASSWORD = 'talhahamid9229'  # Your Gmail password

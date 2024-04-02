@@ -1,11 +1,6 @@
 {% load static %}
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> 
 <html class="no-js" lang=""> 
-<!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,14 +88,88 @@
             }  
         });
     }); 
-</script> 
+</script>
+<style>
+                
+     @media screen and (max-width: 768px) {
+    /* Styles for small screens */
+    .backgroundimg {
+        width: 375px;
+        height: 1075px; /* Adjust height to fit content */
+        background-size: contain; /* Ensure the entire image fits within the container */
+        background-position: center; /* Center the image */
+        background-image:url('../static/images/farm3.jpg');
+        background-size: cover; 
+        margin: 0;
+
+    }
+    .blacklayer{
+        width: 375px;
+        height: 1077px;
+        background-color: rgba(0, 0, 0, 0.5); 
+        margin-top: -10px;    
+    }
+    .ekisan{
+        font-size: large;
+    }
+    .back{
+        margin-left: 270px;
+        margin-top:20px;
+    }
+    .login{
+        width: 350px;
+        height: 200px;
+        margin-top: 150px;
+        box-shadow: 0 0 50px #46eb96d7;
+    }
+    p,label{
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .backgroundimg{
+        height: 603px;  
+        background-size: contain; 
+        background-position: center; 
+        background-image:url('../static/images/farm3.jpg');
+        background-size: cover; 
+        margin: 0;
+    }
+    .blacklayer{
+        height: 603px;
+        background-color: rgba(0, 0, 0, 0.5); 
+        margin-top: -10px;
+    }
+    .back{
+        margin-left: 1100px;
+        margin-top:20px;
+    }
+    .register{
+        margin-top:105px;
+        height: 272px;
+        
+    }
+    p,label{
+        font-size: 15px;
+    }
+    .copyright{
+        margin-top: 125px;
+        margin-left: 25px;
+    }
+}
+</style> 
 </head>
-<body style="background-image:url('../static/images/farm3.jpg');background-size: cover; height: 593px; margin: 0;">
-    <div style="background-color: rgba(0, 0, 0, 0.5); height: 603px;margin-top: -10px;">
-    <a href="/"><button class="btn btn-outline-light" style="margin-left: 1000px;margin-top:20px;">Back</button></a>
-    <div class="sufee-login d-flex align-content-center flex-wrap" style="margin-top:-50px">
+<body>
+    <div class="backgroundimg">
+    <div class="blacklayer">
+    <h3 class="ekisan text-white" style="position: fixed; margin-left: 30px;padding-top: 30px;">E-KISAN</h3>
+    <a href="/"><button class="back btn btn-outline-light btn-sm" style="box-shadow: 0 0 50px #46eb96d7;">Back</button></a>
+    <br><br>
+    <div class="register sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
-            <div class="login-content"> 
+            <div class="login-content" style="box-shadow: 0 0 50px #46eb96d7;"> 
             <div class="bg-transparent card login-form" style="border-color: white;">
                     <form id="registerform" action="/register/" method="post">
                         {% csrf_token %}
@@ -111,7 +180,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-10">
-                                <input type="text" id="name" name="name" class="form-control bg-transparent">
+                                <input type="text" id="name" name="name" class="form-control bg-transparent text-white">
                             </div>
                         </div>
                         <div class="row form-group">
@@ -121,7 +190,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-10">
-                                <textarea type="text" id="address" name="address" class="form-control bg-transparent"></textarea>
+                                <textarea type="text" id="address" name="address" class="form-control bg-transparent text-white"></textarea>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -131,7 +200,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-4">
-                                <input type="text" id="state" name="state" class="form-control bg-transparent">
+                                <input type="text" id="state" name="state" class="form-control bg-transparent text-white">
                             </div>
                             <div class="col col-md-2">
                                 <label class=" form-control-label text-white">
@@ -139,7 +208,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-4">
-                                <input type="text" id="city" name="city" class="form-control bg-transparent">
+                                <input type="text" id="city" name="city" class="form-control bg-transparent text-white">
                             </div>
                         </div>
                         <div class="row form-group">
@@ -149,7 +218,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-4">
-                                <input type="number" id="pincode" name="pincode" class="form-control bg-transparent">
+                                <input type="number" id="pincode" name="pincode" class="form-control bg-transparent text-white">
                             </div>
                             <div class="col col-md-2">
                                 <label class=" form-control-label text-white">
@@ -157,7 +226,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-4">
-                                <input type="number" id="mobile" name="mobile" class="form-control bg-transparent">
+                                <input type="number" id="mobile" name="mobile" class="form-control bg-transparent text-white">
                             </div>
                         </div>
                         <div class="row form-group">
@@ -167,7 +236,7 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="email" id="email" name="email" class="form-control bg-transparent">
+                                <input type="email" id="email" name="email" class="form-control bg-transparent text-white">
                             </div>
                             <div class="col col-md-1">
                                 <label class=" form-control-label text-white">
@@ -175,9 +244,10 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-3">
-                                    <select class="form-control bg-transparent" id="role" name="role">
+                                    <select class="form-control bg-transparent  text-white" id="role" name="role">
                                         <option value="Farmer">Farmer</option>
                                         <option value="Dealer">Dealer</option>
+                                        <option value="Farmer">Seller</option>
                                         <option value="Delivery Man">Delivery Man</option>
                                 </select>
                             </div>
@@ -189,11 +259,11 @@
                                 </label>
                             </div>
                             <div class="col-12 col-md-10">
-                                <input type="password" id="password" name="password" class="form-control bg-transparent">
+                                <input type="password" id="password" name="password" class="form-control bg-transparent text-white">
                             </div>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Register</button>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30" style="height: 45px;">Register</button>
                         
                         <div class="register-link m-t-15 text-center  text-white">
                             <p  class='text-white'>Already have account ? <a href="/index/" class='text-white'> Sign in</a></p>
@@ -203,8 +273,10 @@
             </div>
         </div>
     </div>
+    <p class="copyright text-white">E-KISAN - @copyright-2022</p>
 </div>
-                    
+</div>          
+</div>
 
     <script src="{% static 'assets/js/lib/chart-js/Chart.bundle.js' %}"></script>
     <script src="{% static 'assets/js/dashboard.js' %}"></script>

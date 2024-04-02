@@ -24,40 +24,40 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 <script>  
     $(document).ready(function(){  
         $("#changepasswordform").validate({
             rules: {
                 current_password: {
                     required: true,
-                    minlength: 6
+                    //minlength: 6
                 },
                 new_password: {
                     required: true,
                     minlength: 6
                 },
-                confirm_password: {
+                confirm_new_password: {
                     required: true,
                     minlength: 6,
-                    equalTo: "#new_password"
+                    //equalTo: "#new_password"
                 }
             },
             messages: {
                 current_password: {
                     required: "specify current password",
-                    minlength: "minimum length must be 6 character.............."
+                    minlength: "minimum length must be 6 character"
                 },
                 new_password: {
                     required: "specify new password",
-                    minlength: "minimum length must be 6 character..............."
+                    minlength: "minimum length must be 6 character"
                 },
-                confirm_password: {
+                confirm_new_password: {
                     required: "specify confirm password",
-                    minlength: "minimum length must be 6 character..............",
+                    minlength: "minimum length must be 6 character",
                     equalTo: "new password and confirm password must be same "
                 }
             }  
@@ -65,8 +65,34 @@
     }); 
 </script>
 
-
-</head>
+<style>
+  @media only screen and (max-width: 600px) {
+    .subs{
+      width: 360px;
+      margin-left: 10px;
+      font-size: 12px;
+    }
+    table{
+      width: 450px;
+    }
+    .change{
+      width: 360px;
+      margin-left: -330px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .subs{
+      width: 500px; 
+      height: 150px;
+    }
+    table{
+      width: 500px;
+    }
+    .change{
+      width: 360px;
+    }
+}
+</style>  
 
 </head>    
 <body>
@@ -77,8 +103,14 @@
 			<div class="row">
 				<div class="col-md-4">
 					<!-- Profile Picture -->
-				<img style="width:300px;height:300px;" src="{% static 'images/ab.jpg' %}">
-				</div>
+          <div id="profile-pic-container" style="cursor: pointer;">
+            {% if not profilepic %}
+            <img id="profile-pic" src="{% static 'images/profile-picture.webp' %}" style="width: 400px;height: 300px;" alt="User Profile Picture">
+            {% else %}
+              <img src="/media/{{ profilepic.profilepic }}" style="width: 300px; height: 250px;">
+            {% endif %}
+          </div>    
+        </div>
 				<div class="col-md-8">
 
 					<!-- User Information -->
@@ -89,7 +121,7 @@
 					<p>State: {{profile.state}}</p>
 					
 					<!-- Edit Profile Button -->
-					<a href="#" class="btn btn-primary">Edit Profile</a>
+					<a href="/farmer/editfarmerprofile/{{profile.id}}/" class="btn btn-primary">Edit Profile</a>
 				</div>
 			</div>
 		</div>
@@ -98,11 +130,11 @@
 
 <br><br>
 
-<div class="bg-white shadow-lg card container" style="width: 500px; height: 150px;">
+<div class="subs bg-white shadow-lg card container" >
     <h4 class="text-center p-2">Your Subscription Plan Details</h4>
     <hr>
     <div class="plan-details">
-        <table style="width: 500px;">
+        <table >
             <tr>
                 <th style="text-align:ceter;">Plan Name</th>
                 <th style="text-align:ceter;">Price</th>
@@ -119,24 +151,27 @@
 </div>
 
 
-<br><br><hr>
+<br>
 
-<div class="sufee-login d-flex align-content-center flex-wrap" >
-<div class="container" style="width: 400px;">
-	<div class="login-form">
+<div class="change sufee-login d-flex align-content-center flex-wrap" >
+<div class=" container">
+	<div class="bg-white shadow-lg card login-form"  style="width: 350px;height: 400px;margin-left: 325px;">
 
 	<h4>Change Password</h4>
-	<form method="post" id="changepasswordform" action="" style="margin-top:-30px;height: 250px;">
-		<input type="hidden" name="id" value="">
-			<label style="font-size: 12px;">Current Password</label>
-			<input name="current_password" type="password" class="form-control" style="width: 300px;height: 30px;   ">
+	<form method="post" id="changepasswordform" action="/farmer/changepassword/" style="margin-top:-30px;height: 250px;">
+            {% csrf_token %}
+            <label style="font-size: 12px;">Current Password</label>
+			<input name="current_password" type="password" class="form-control" style="width: 300px;height: 30px;">
 			<label style="font-size: 12px;">New Password</label>
 			<input style="width:300px;height: 30px;" name="new_password" type="password" class="form-control">
 			<label style="font-size: 12px;">Confirm Password</label>
-			<input style="width:300px;height: 30px;" name="confirm_password" type="password" class="form-control">
+			<input style="width:300px;height: 30px;" name="confirm_new_password" type="password" class="form-control">
 			<br>
 		<button style="font-size: 12px; width:300px;height: 40px;" class="form-control btn btn-primary">Submit</button><br>
-	</form>
+	{% if messages %}
+        <!-- <div style="color: green; font-size: 12px; margin-top: 10px;">{{ messages }}</div> -->
+    {% endif %}
+    </form>
 
 	</div>
 </div>
@@ -144,9 +179,38 @@
 
 <hr><br>
 
+<div id="profile-upload-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="image-upload-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="image-upload-modal-label">Upload Profile Picture</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/farmer/farmerprofilepic/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="file" name="profilepic" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Profile Picture</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+    document.getElementById('profile-pic-container').addEventListener('click', function() {
+      $('#profile-upload-modal').modal('show');
+    });
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
+
 {% include 'footer.html' %}
 
-
-
+  
 
 

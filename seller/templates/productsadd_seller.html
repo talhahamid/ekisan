@@ -1,0 +1,209 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang=""> 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-KISAN </title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="apple-touch-icon" href="{% static 'apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/scss/style.css' %}">
+    <link href="{% static 'assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>  
+
+<script>  
+    $(document).ready(function(){  
+        $("#productspriceadd").validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                quantity: {
+                    required: true,
+                    number: true
+                },
+                rate: {
+                    required: true,
+                    number: true
+                },
+                address: {
+                    required: true
+                },
+                producttype: {
+                    required: true
+                },
+                quality: {
+                    required: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "specify name"
+                },
+                quantity: {
+                    required: "specify quantity"
+                },
+                rate: {
+                    required: "specify rate"
+                },
+                address: {
+                    required: "specify address"
+                },
+                producttype: {
+                    required: "specify producttype"
+                },
+                quality: {
+                    required: "specify quality"
+                }
+            }  
+        });
+    }); 
+</script> 
+
+<style>
+        @media only screen and (max-width: 600px) {
+        .login{
+            width: 350px;
+        margin-top: 20px;
+        margin-left: 15px;
+        margin-bottom: 100px;
+    }
+    .main{
+        padding-left: 100px;
+    }
+    .btns{
+        margin-left: 150px;
+    }
+    }
+    @media only screen and (min-width: 1024px) {
+        .login{width: 800px;
+        margin-left: 100px;
+        margin-top: 20px;}
+        .main{
+            padding-left: 800px;
+        } 
+        .btns{
+            margin-left: 0px;
+        }
+    }
+</style>
+</head>
+<body>
+{% include 'seller_menu.html' %}
+
+<br>
+<div class="main">
+<a href="javascript:window.history.go(-1);" class="btns btn btn-primary">Previous</a>
+</div>
+
+                <div class="login login-form" >
+                    <h3>Add Product </h3><hr><br>
+                        <form id="productspriceadd" action="/seller/selleragreement/" method="POST">
+                            {% csrf_token %}
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                    PRODUCT NAME
+                                    </label>
+                                </div>
+
+                                <div class="col-12 col-md-8">
+                                <input type="text" name="product_name" class="form-control" />
+                                </div>
+                                    
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                    Product Type
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input name="product_type" type="text" value="{{producttype}}" class="form-control"/>
+                                </div>
+                            </div>
+                            
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                        Price
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="number" name="price" class="form-control">
+                                </div>
+                            </div>    
+
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                        Quantity
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="number" name="quantity" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-3 col-md-2">
+                                    <label class=" form-control-label">
+                                        Images
+                                    </label>
+                                </div>
+                                <div class="col-3 col-md-3">
+                                    <input type="file" name="img1" class="form-control" onchange="displayImage(this, 'img1-preview')">
+                                </div>
+                                <div class="col-3 col-md-3">
+                                    <input type="file" name="img2" class="form-control" onchange="displayImage(this, 'img2-preview')">
+                                </div>
+                                <div class="col-3 col-md-3">
+                                    <input type="file" name="img3" class="form-control" onchange="displayImage(this, 'img3-preview')">
+                                </div>
+                            </div>
+                            <table style="width: 800px;">
+                                <tr>
+                                    <td><td id="img1-preview"></td></td>
+                                    <td><td id="img2-preview"></td></td>
+                                    <td><td id="img3-preview"></td></td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">ADD</button>
+                        </form>
+                </div>
+            </div>
+
+                    
+{% include 'seller_footer.html' %}
+
+<script>
+    function displayImage(input, previewId) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#' + previewId).html('<img src="' + e.target.result + '" width="200" height="200">');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+</body>
+</html>

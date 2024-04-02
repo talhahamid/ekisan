@@ -52,49 +52,43 @@
             <div class="row">
 
                 <div class="col-md-12">
+                    {% for product in products %}
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
-                            <a href="/farmer/sales/">
-                                <input type="submit" style=" float: right;width: 100px;" name="add" value="ADD" class="btn btn-primary form-control">
-                            </a>    
+                            <strong class="card-title">Product Table</strong>
                         </div>
                         <div class="card-body">
+                            <div class="table-responsive">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="bootstrap-data-table_info">
                                 <thead>
                                 <tr role="row">
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 300px;">Product Name</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 305px;">Product Type</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">Quality</th>
+                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;"> Product Name</th>
+                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;"> Product Owner</th>
+                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 205px;">Quantity</th>
                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Rate</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 225px;">Quantity</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px; padding-left: 50px;">Action</th>
+                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Bit Rate</th>
+                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">Quality</th>
 
                                 </tr>
                                 </thead>
                                 <tbody> 
-                                    {% for product in products %}
+                                    
                                     <tr role="row" class="odd">
-                                        <td>{{product.product_name}}</td>
-                                        <td>{{product.product_type}}</td>
+
+                                        <td>{{product.name}}</td>
+                                        <td>{{product.farmer}}</td>
+                                        <td>{{product.quantity}}</td>
                                         <td>{{product.quality}}</td>
                                         <td>{{product.rate}}</td>
-                                        <td>{{product.quantity}}</td>
-                                        <td>
-                                            <!-- <a href="/farmer/productpriceedit">
-                                                <input type="submit" style="width: 100px;" name="edit" value="EDIT" class="btn btn-primary form-control">
-                                            </a> -->
-                                            <a href="">
-                                                <input type="submit" style="width: 100px;" name="delete" value="DELETE" class="btn btn-danger form-control">
-                                            </a>        
-                                        </td>
-                                        {% endfor %}
+                                        <td>{{product.bit_value}}</td>
                                     </tr> 
                                     
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>    
+                    {% endfor %}
                 </div>
             </div>        
         </div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Farmer</title>
+</head>
+<body>
+    <h1>Add Farm</h1>
+    <form action="/farmer/add_farmer/" method="post">
+        {% csrf_token %}
+        
+        <input type="number" name="latitude" step="0.00001" placeholder="Latitude">
+        <input type="number" name="longitude" step="0.00001" placeholder="Longitude">
+        <textarea name="description" placeholder="Farm Description (Optional)"></textarea>
+        <input type="url" name="video_url" placeholder="External Video URL (Optional)">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% include 'menu.html' %}
+<head>
+<style>
+        .card {
+            height: 120px;
+            width: 200px;
+            margin-bottom: 50px;
+            margin-right: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+                margin-left: 60px;
+                margin-bottom: 20px;
+            }
+
+            .card:nth-child(odd) {
+                clear: both; 
+            }
+        }
+    </style>
+ </head>   
+
+<body style="background-color: LightGray;">    
+
+{% include 'header.html' %}
+
+<br><br><br>    
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Ox/">
+                    <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightpink;">
+                        <h3 style="margin-left:25px;margin-top: 25px;">Ox</h3>
+                        <h4 style="margin-left:50px;margin-top: 5px;">बैल  بیل</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Bullock Cart/">
+                    <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightblue;">
+                        <h3 style="margin-left:25px;margin-top: 25px;">Bullockcart</h3>
+                        <h4 style="margin-left:50px;margin-top: 5px;">बैलगाड़ी  بیل گاڑی</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Vehicles/">
+                <div class="card rounded text-white shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightcoral;">
+                    <h3 style="margin-left:50px;margin-top: 25px;">Vehicle</h3>
+                    <h4 style="margin-left:50px;margin-top: 5px;">گاڑی वाहन</h4>
+                </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Seeds/">
+                <div class="card rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightcyan;">
+                    <h3 style="margin-left:50px;margin-top: 25px;">Seeds</h3>
+                    <h4 style="margin-left:50px;margin-top: 5px;">बीज  بیج</h4>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Fertilizers/">
+                <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightgoldenrodyellow;">
+                    <h3 style="margin-left:50px;margin-top: 25px;">Fertilizers</h3>
+                    <h4 style="margin-left:25px;margin-top: 5px;">उर्वरक کھاد</h4>
+                </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Pesticides/">
+                <div class="card text-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightgreen;">
+                    <h3 style="margin-left:50px;margin-top: 25px;">Pesticides</h3>
+                    <h4 style="margin-left:15px;margin-top: 5px;">कीटनाशकों کیڑے مار ادویات</h4>
+                </div>
+                </a>
+            </div>   
+            <div class="col-md-3">
+                <a href="/farmer/productlists/Machines/">
+                <div class="card text-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightsteelblue;">
+                    <h3 style="margin-left:50px;margin-top: 25px;">Machines</h3>
+                    <h4 style="margin-left:15px;margin-top: 5px;">मशीन مشینیں</h4>
+                </div>
+                </a>
+            </div>   
+        </div>
+    </div>
+{% include 'footer.html' %}
+
+
+

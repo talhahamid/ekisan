@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.urls import path
 from . import views
 
@@ -8,58 +7,36 @@ urlpatterns = [
     path('',views.farmer,name="farmer"),
 
     path('farmerprofile/',views.farmerprofile,name="farmerprofile"),
-
-    path('calculations/',views.calculations,name="calculations"),
-    path('calculationsadd/',views.calculationsadd,name="calculationsadd"),
-    path('calculationsedit/',views.calculationsedit,name="calculationsedit"),
-
-    path('dealerslist/',views.dealerslist,name="dealerslist"),
-    path('dealersadd/',views.dealersadd,name="dealersadd"),
-    path('dealersedit/',views.dealersedit,name="dealersedit"),
-
-    path('renterslist/',views.renterslist,name="renterslist"),
-    path('rentersadd/',views.rentersadd,name="rentersadd"),
-    path('rentersedit/',views.rentersedit,name="rentersedit"),
-
-    path('resourceslist/',views.resourceslist,name="resourceslist"),
-    path('resourcesadd/',views.resourcesadd,name="resourcesadd"),
-    path('resourcesedit/',views.resourcesedit,name="resourcesedit"),
-    
-    path('transactions/',views.transactions,name="transactions"),
-
-    path('fertilizersform/',views.fertilizersform,name="fertilizersform"),
-
-    path('oxdetails/',views.oxdetails,name="oxdetails"),
-
-    path('patriform/',views.patriform,name="patriform"),
-
-    path('pesticidesform/',views.pesticidesform,name="pesticidesform"),
-    path('pesticideslist/',views.pesticideslist,name="pesticideslist"),
-
-    path('productprice/',views.productprice,name="productprice"),
-    path('productpriceadd/',views.productpriceadd,name="productpriceadd"),
-    path('productpriceedit/',views.productpriceedit,name="productpriceedit"),
+    path('editfarmerprofile/<int:id>/',views.editfarmerprofile,name="editfarmerprofile"),
+    path('updatefarmerprofile/<int:id>/',views.updatefarmerprofile,name="updatefarmerprofile"),
+    path('farmerprofilepic/',views.farmerprofilepic,name="farmerprofilepic"),
+    path('changepassword/',views.changepassword,name="changepassword"),
 
     path('sales/',views.sales,name="sales"),
-    path('addsales/',views.addsales,name="addsales"),
+    path('productprice/',views.productprice,name="productprice"),
+    path('productpriceadd/',views.productpriceadd,name="productpriceadd"),
+    path('productpriceadddone/<str:product_name>/<str:product_type>/<str:quality>/<int:rate>/<int:quantity>/',views.productpriceadddone,name="productpriceadddone"),
 
-    path('categorylist/',views.categorylist,name="categorylist"),
-    path('salescategorylist/',views.salescategorylist,name="salescategorylist"),
-    path('addsalescategory/',views.addsalescategory,name="addsalescategory"),
-
-    path('seedsform/',views.seedsform,name="seedsform"),
-    path('seedslist/',views.seedslist,name="seedslist"),
-
-    path('vehiclesform/',views.vehiclesform,name="vehiclesform"),
-
-    path('workersform/',views.workersform,name="workersform"),
-
-    path('animalsform/',views.animalsform,name="animalsform"),
-
-    
     path('vegitables/',views.vegitables,name="vegitables"),
     path('fruits/',views.fruits,name="fruits"),
     path('crops/',views.crops,name="crops"),
+    path('herb/',views.herb,name="herb"),
+    path('nuts/',views.nuts,name="nuts"),
+    path('grains/',views.grains,name="grains"),
+    path('legumes/',views.legumes,name="legumes"),
+    path('tubers/',views.tubers,name="tubers"),
+    path('berries/',views.berries,name="berries"),
+    path('flowers/',views.flowers,name="flowers"),
+    path('leafygreens/',views.leafygreens,name="leafygreens"),
+    path('roots/',views.roots,name="roots"),
+    path('spices/',views.spices,name="spices"),
+    path('medicinalplants/',views.medicinalplants,name="medicinalplants"),
+    path('mushrooms/',views.mushrooms,name="mushrooms"),
+    path('pulses/',views.pulses,name="pulses"),
+    path('oilseeds/',views.oilseeds,name="oilseeds"),
+    path('covercrops/',views.covercrops,name="covercrops"),
+    path('condiments/',views.condiments,name="condiments"),
+    path('exoticplants/',views.exoticplants,name="exoticplants"),
 
     path('farmerbit/',views.farmerbit,name="farmerbit"),
     
@@ -72,4 +49,18 @@ urlpatterns = [
     path('premiumplan/<int:amount>',views.premiumplan,name="premiumplan"),
     path('success/',views.success,name="success"),
 
+    path('farmeragreement/',views.farmeragreement,name="farmeragreement"),
+    path('farmeragreementdone/',views.farmeragreementdone,name="farmeragreementdone"),
+    
+    path('buy/',views.buy,name="buy"),
+    path('productlists/<str:producttype>/',views.productlists,name="productlists"),
+    path('bit/<str:productname>/<str:producttype>/<str:img1>/<str:img2>/<str:img3>/<int:price>/<int:quantity>/',views.bit,name="bit"),
+
+    path('renterslist/',views.renterslist,name="renterslist"),
+
+    path('rent/',views.rent,name="rent"),
+
+    # path('farm_view/',views.farm_view,name="farm_view"),
+    # path('add_farmer/',views.add_farmer,name="add_farmer"),    
+    # path('farm_stream/<int:pk>/',views.farm_stream,name="farm_stream"),    
     ]

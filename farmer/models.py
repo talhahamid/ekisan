@@ -40,3 +40,32 @@ def send_acceptance_notification(sender, instance, **kwargs):
         Message.objects.create(user=instance.bitter, product=instance.product, notification=message)
 
        
+
+class Agreement(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    agree = models.BooleanField(default=False)      
+
+
+from django.db import models
+
+from django.db import models
+
+class Farm(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Store GPS coordinates or use a GeoDjango field for advanced location handling
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
+    # Optional: Farm description, link to an external video streaming service, etc.
+    description = models.TextField(blank=True, null=True)
+    video_url = models.URLField(blank=True, null=True)
+
+
+class Renter(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    city=models.CharField(max_length=250)
+    img1=models.CharField(max_length=250)
+    img2=models.CharField(max_length=250)
+    img3=models.CharField(max_length=250)
+    duration=models.CharField(max_length=250)
+    rent=models.CharField(max_length=250)
+    location=models.CharField(max_length=250)

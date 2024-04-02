@@ -1,5 +1,26 @@
 {% include 'menu.html' %}
+<head>
+<style>
+        .card {
+            height: 120px;
+            width: 200px;
+            margin-bottom: 50px;
+            margin-right: 10px;
+        }
 
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+                margin-left: 60px;
+                margin-bottom: 20px;
+            }
+
+            .card:nth-child(odd) {
+                clear: both; 
+            }
+        }
+    </style>
+ </head>   
 <body style="background-color: LightGray;">
 
     {% include 'header.html' %}
@@ -8,9 +29,9 @@
     
    
 
-    <table style="width: 1000px; margin-left: 10px;">
-        <tr>
-            <td>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Wheat">
                 <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Wheat</h3>
@@ -20,8 +41,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Rice">
                 <div class="card" style="height:200px;width: 200px;margin-right: 10px; ">
                     <h3 style="margin-left:60px;margin-top: 25px;">Rice</h3>
@@ -31,8 +52,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Maize">
                 <div class="card" style="height:200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Maize</h3>
@@ -42,8 +63,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Barley">
                 <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Barley</h3>
@@ -53,8 +74,10 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+    </div>
+    <div class="row">    
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Oats">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Oats</h3>
@@ -64,11 +87,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-
-        </tr>
-        <tr>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Rye">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Rye</h3>
@@ -78,8 +98,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Millet">
                 <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Millet</h3>
@@ -89,8 +109,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Sorghum">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:40px;margin-top: 25px;">Sorghum</h3>
@@ -100,8 +120,10 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+    </div>  
+    <div class="row">  
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Cotton">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Cotton</h3>
@@ -111,8 +133,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>   
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Sugarcane">
                 <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Sugarcane</h3>
@@ -122,10 +144,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-        </tr>
-        <tr>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Soyabeans">
                 <div class="card" style="height:200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Soybeans</h3>
@@ -134,8 +154,9 @@
                         <img src="../../static/images/soybean.jpg" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Canola">
                 <div class="card" style="height:200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Canola</h3>
@@ -144,8 +165,11 @@
                         <img src="../../static/images/canola.jpg" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+    </div>    
+    <div class="row">  
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Sunflower">
                 <div class="card " style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Sunflower</h3>
@@ -154,8 +178,9 @@
                         <img src="../../static/images/sunflower.jpg" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Peanuts">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Peanuts</h3>
@@ -164,8 +189,9 @@
                         <img src="../../static/images/peanuts.jpg" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Lentils">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Lentils</h3>
@@ -174,10 +200,9 @@
                         <img src="../../static/images/lentil.webp" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
+                </a>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Chickpeas">
                 <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Chickpeas</h3>
@@ -186,8 +211,11 @@
                         <img src="../../static/images/chickpeas.jpg" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+    </div>            
+    <div class="row">  
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=FLaxseed">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Flaxseed</h3>
@@ -196,8 +224,9 @@
                         <img src="../../static/images/flaxseed.jpg" height="125px" width="225px" alt="Carrot Image">
                     </div>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Tobacco">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Tobacco</h3>
@@ -207,8 +236,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Coffee">
                 <div class="card" style="height: 200px;width: 200px; margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Coffee</h3>
@@ -218,8 +247,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Tea">
                 <div class="card" style="height: 200px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:60px;margin-top: 25px;">Tea</h3>
@@ -229,11 +258,11 @@
                     </div>
                 </div>
                 </a>
-            </td>
+        </div>
+    </div>    
 
-        </tr>
-        <tr>
-            <td>
+    <div class="row">  
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Cocoa">
                 <div class="card" style="height: 200px;width: 200px;margin-bottom: 50px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Cocoa</h3>
@@ -243,10 +272,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            
-            
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Cassava">
                 <div class="card" style="height: 200px;width: 200px;margin-bottom: 50px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Cassava </h3>
@@ -256,8 +283,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>
+        <div class="col-md-3">
                 <a href="{% url 'farmer:productpriceadd' %}?fruit=Sugar Beets">
                 <div class="card" style="height: 200px;width: 200px;margin-bottom: 50px;margin-right: 10px; ">
                     <h3 style="margin-left:25px;margin-top: 25px;">Sugar Beets</h3>
@@ -267,8 +294,8 @@
                     </div>
                 </div>
                 </a>
-            </td>
-        </tr>
-    </table>
+        </div>        
+    </div>
+</div>
 
     {% include 'footer.html' %}

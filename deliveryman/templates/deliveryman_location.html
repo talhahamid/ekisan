@@ -34,6 +34,23 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script scr="https://polfill.io/v3/polyfill.min.js?features=default"></script>
+<style>
+     @media only screen and (max-width: 768px) {
+        .card{
+            margin-top: 40px;
+            height: 500px;
+            width:350px ;
+            margin-left: 10px;
+        }
+     }
+     @media only screen and (min-width: 1024px) {
+        .card{
+            margin-top: 40px;
+            height: 500px;
+            width:1050px ;
+        }
+     }
+</style>
 </head>
 
 <body>
@@ -45,7 +62,7 @@
 
 
 <div>
-<div id="map" class="card bg-white" style="margin-top: 40px;height: 500px;width:1050px ;"></div>
+<div id="map" class="card bg-white"></div>
 <script
     src="https://maps.google.apis.com/maps/api/js?key=AIzaSyA4ok42pz99BZiplrtRQHs4kzCVQH_fxfQ&callback=initMap"></script>
 </div>

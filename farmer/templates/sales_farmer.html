@@ -1,6 +1,26 @@
 {% include 'menu.html' %}
+<head>
+<style>
+        .card {
+            height: 120px;
+            width: 200px;
+            margin-bottom: 50px;
+            margin-right: 10px;
+        }
 
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+                margin-left: 60px;
+                margin-bottom: 20px;
+            }
 
+            .card:nth-child(odd) {
+                clear: both; 
+            }
+        }
+    </style>
+ </head>   
 <body style="background-color: LightGray;">    
 
     {% include 'header.html' %}
@@ -9,151 +29,179 @@
 
 
 <br>    
-
-    <table style="width: 1000px; margin-left: 10px;">
-        <tr>
-            <td>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
                 <a href="/farmer/vegitables">
-                    <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;">
+                    <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightblue;">
                         <h3 style="margin-left:25px;margin-top: 25px;">Vegetables</h3>
                         <h4 style="margin-left:50px;margin-top: 5px;">सब्ज़ियाँ  سبزیاں</h4>
                     </div>
                 </a>
-            </td>
-            <td>
+        </div>        
+        <div class="col-md-3">
                 <a href="/farmer/fruits">
-                <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                <div class="card rounded text-white shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightcoral;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Fruits</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">फल پھل</h4>
                 </div>
                 </a>
-            </td>
-            <td>
+        </div>        
+        <div class="col-md-3">
                 <a href="/farmer/crops">
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                <div class="card rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightcyan;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Crops</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">फसलें  فصلیں</h4>
                 </div>
                 </a>
-            </td>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;">
+        </div>
+
+        <div class="col-md-3">
+                <a href="/farmer/herb">
+                <div class="card rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightgoldenrodyellow;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Herbs</h3>
                     <h4 style="margin-left:25px;margin-top: 5px;">जड़ी बूटी جڑی بوٹیاں</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                </a>
+        </div>
+    </div>
+    <div class="row">    
+        <div class="col-md-3">
+                <a href="/farmer/nuts">
+                <div class="card text-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightgreen;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Nuts</h3>
                     <h4 style="margin-left:15px;margin-top: 5px;">टिप्पणियाँ گری دار میوے</h4>
                 </div>
-            </td>
-    
-        </tr>
-        <tr>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                </a>
+        </div>   
+        <div class="col-md-3">
+                <a href="/farmer/grains">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightpink;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Grains</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">साग اناج</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/legumes/">
+                <div class="card text-white  rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightsalmon;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Legumes</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">लैगमस دالیں</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/tubers/">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightseagreen;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Tubers</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">तबरास آلو پیاز</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                </a>
+        </div>        
+    </div>
+    <div class="row">   
+        <div class="col-md-3">
+                <a href="/farmer/berries">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightskyblue;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Berries</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">आड़ بیر</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/flowers/">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: lightslategray;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Flowers</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">फूल پھول</h4>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/leafygreens/">
+                <div class="card text-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: black;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Leafy Greens</h3>
                     <h4 style="margin-left:25px;margin-top: 5px;">लिफ़ी ग्रीन्स پتیدار سبز </h4>
                 </div>
-            </td>
-            <td>
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/roots/">
                 <div class="card bg-white  rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
                     <h3 style="margin-left:50px;margin-top: 25px;">Roots</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">जड़ों جڑیں</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;">
+                </a>
+        </div>
+    </div>
+    <div class="row">    
+        <div class="col-md-3">
+                <a href="/farmer/spices/">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px; margin-right: 10px;background-color: limegreen;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Spices</h3>
                     <h4 style="margin-left:50px;margin-top: 5px;">मसाले مصالحے</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
-                    <h3 style="margin-left:25px;margin-top: 15px;">Medicinal Plants</h3>
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/medicinalplants/">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightsteelblue;">
+                    <h4 style="margin-left:15px;margin-top: 15px;font-size: 23px;">Medicinal Plants</h4>
                     <h4 style="margin-left:2px;margin-top: 5px;">औषधीय पौधे دواؤںکےپودے</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/mushrooms/">
+                <div class="card rounded shadow-lg" style="height: 120px;width: 200px;margin-right: 10px;background-color: lightyellow;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Mushrooms</h3>
                     <h4 style="margin-left:25px;margin-top: 5px;">मशरूम مشروم</h4>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="/farmer/ ">
-                    <div class="card bg-white rounded shadow-lg" style="height:120px;width: 200px;margin-bottom: 50px; margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/pulses">
+                    <div class="card text-white rounded shadow-lg" style="height:120px;width: 200px;margin-bottom: 50px; margin-right: 10px;background-color: lightgreen;">
                         <h3 style="margin-left:50px;margin-top: 25px;">Pulses</h3>
                         <h4 style="margin-left:50px;margin-top: 5px;">दालें دالیں</h4>
                     </div>
                 </a>
-            </td>
-            <td>
-                <a href="/farmer/ ">
-                    <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px;margin-bottom: 50px;margin-right: 10px;">
+        </div>
+    </div>
+    <div class="row">    
+        <div class="col-md-3">
+                <a href="/farmer/oilseeds">
+                    <div class="card rounded shadow-lg" style="height: 120px;width: 200px;margin-bottom: 50px;margin-right: 10px;background-color: lightgoldenrodyellow;">
                         <h3 style="margin-left:50px;margin-top: 25px;">Oilseeds</h3>
                         <h4 style="margin-left:25px;margin-top: 5px;">वेलसीडास تیل کے بیج</h4>
                     </div>
                 </a>
-            </td>
-            <td>
-                <a href="/farmer/ ">
-                    <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px;margin-bottom: 50px;margin-right: 10px;">
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/covercrops/">
+                    <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px;margin-bottom: 50px;margin-right: 10px;background-color: lightpink;">
                         <h3 style="margin-left:25px;margin-top: 5px;">Cover Crops</h3>
                         <h4 style="margin-left:25px;margin-top: 1px;">सुरक्षा फसलें فصلوںکااحاطہکریں</h4>
                     </div>
                 </a>
-            </td>
-            <td>
-                <div class="card bg-white rounded shadow-lg" style="height: 120px;width: 200px;margin-bottom: 50px; margin-right: 10px;">
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/condiments">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;width: 200px;margin-bottom: 50px; margin-right: 10px;background-color: lightsalmon;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Condiments</h3>
                     <h4 style="margin-left:25px;margin-top: 5px;">मसालों مصالحہ جات</h4>
                 </div>
-            </td>
-            <td>
-                <div class="card bg-white rounded shadow-lg" style="height: 120px;margin-bottom: 50px; width: 200px;margin-right: 10px;">
+                </a>
+        </div>
+        <div class="col-md-3">
+                <a href="/farmer/exoticplants">
+                <div class="card text-white rounded shadow-lg" style="height: 120px;margin-bottom: 50px; width: 200px;margin-right: 10px;background-color: lightslategrey ;">
                     <h3 style="margin-left:25px;margin-top: 25px;">Exotic Plants</h3>
                     <h4 style="margin-left:5px;margin-top: 5px;">विदेशी पौधे غیر ملکی پودے</h4>
                 </div>
-            </td>
-        
-        </tr>
-    </table>
+                </a>
+        </div>
+    </div>
+</div>
 {% include 'footer.html' %}
 
 

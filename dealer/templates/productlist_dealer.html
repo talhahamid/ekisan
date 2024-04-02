@@ -1,3 +1,5 @@
+
+
 {% include 'menudealer.html' %}
 {% include 'dealerheader.html' with user_name=user_name %}
 
@@ -14,52 +16,57 @@
                         <strong class="card-title">Data Table</strong>
                     </div>
                     <div class="card-body">
-                        <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer"
-                            role="grid" aria-describedby="bootstrap-data-table_info">
-                            <thead>
-                                <tr role="row">
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;">
-                                        Kisan Name</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;">
-                                        Product Name</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;">
-                                        Product Name</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 205px;">
-                                        Quantity</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Rate
-                                    </th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">
-                                        Quality</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table"
-                                        style="width: 250px; padding-left: 100px;">Action</th>
+                        <div class="table-responsive">
+                            <table id="bootstrap-data-table" class="table table-striped table-bordered dataTable no-footer"
+                                role="grid" aria-describedby="bootstrap-data-table_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;">
+                                            Kisan Name</th>
+                                        <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;">
+                                            Product Name</th>
+                                        <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;">
+                                            Product Name</th>
+                                        <th class="sorting" aria-controls="bootstrap-data-table" style="width: 205px;">
+                                            Quantity</th>
+                                        <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Rate
+                                        </th>
+                                        <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">
+                                            Quality</th>
+                                        <th class="sorting" aria-controls="bootstrap-data-table"
+                                            style="width: 250px; padding-left: 100px;">Action</th>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for data in fruit_data %}
-                                <tr role="row" class="odd">
-                                    <td>{{data.user.name}}</td>
-                                    <td>{{data.product_name}}</td>
-                                    <td>{{data.product_type}}</td>
-                                    <td>{{data.quality}}</td>
-                                    <td>{{data.rate}}</td>
-                                    <td>{{data.quantity}}</td>
-                                    <td>
-                                        <a href="{% url 'bit' data.user.name data.product_name data.product_type data.quality data.rate data.quantity %}">
-                                            <input type="submit" style="width: 100px;margin-left: 50px;" name="delete" value="BIT"
-                                                class="btn btn-success form-control">
-                                        </a>
-                                    </td>
-                                </tr>
-                            {% endfor %}     
-                            </tbody>
-                        </table>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for data in fruit_data %}
+                                    <tr role="row" class="odd">
+                                        <td>{{data.user.name}}</td>
+                                        <td>{{data.product_name}}</td>
+                                        <td>{{data.product_type}}</td>
+                                        <td>{{data.quality}}</td>
+                                        <td>{{data.rate}}</td>
+                                        <td>{{data.quantity}}</td>
+                                        <td>
+                                            <a href="{% url 'bit' data.user_id data.user.name data.product_name data.product_type data.quality data.rate data.quantity %}">
+                                                <input type="submit" style="width: 100px;margin-left: 50px;" name="delete" value="BIT"
+                                                    class="btn btn-success form-control">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}     
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div><!-- .animated -->
 </div>
+
+</div>
+
 
 </div>
 

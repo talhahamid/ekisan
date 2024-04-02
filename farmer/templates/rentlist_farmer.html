@@ -1,0 +1,35 @@
+{% include 'menu.html' %}
+<head>
+   
+</head>
+<body style="background-color: LightGray;">
+
+{% include 'header.html' %}
+
+<br><br><br>
+    
+<table style="margin-left: 25px;">
+    <tr>
+        {% for rent in rerters %}
+            {% if forloop.counter0|divisibleby:4 %}
+                </tr><tr>
+            {% endif %}
+            <td>
+                <form action="" method="post">
+                {% csrf_token %}
+                    <div class="card rounded shadow-lg p-4">
+                        <h4>{{ rent.owner }}</h4>
+                        <img src="{{ rent.img1 }}" width="200px" height="200px">
+                        <h6>{{ rent.rent }}</h6>
+                        <h6>{{ rent.duration }}</h6>
+                        <button type="submit" class="btn btn-danger btn-sm">Rent</button>
+                    </div>
+                </form>    
+            </td>
+        {% endfor %}
+    </tr>
+</table>
+
+
+{% include 'footer.html' %}
+</body>

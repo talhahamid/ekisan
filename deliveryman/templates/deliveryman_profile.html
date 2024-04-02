@@ -29,6 +29,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#changepasswordform").validate({
@@ -65,8 +68,36 @@
             });
         }); 
     </script>
-</head>
 
+<style>
+  @media only screen and (max-width: 600px) {
+    .subs{
+      width: 360px;
+      margin-left: 10px;
+      font-size: 12px;
+    }
+    table{
+      width: 370px;
+    }
+    .change{
+      width: 360px;
+      margin-left: -8px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .subs{
+      width: 500px; 
+      height: 150px;
+    }
+    table{
+      width: 500px;
+    }
+    .change{
+      width: 360px;
+      margin-left: 300px;
+    }
+}
+</style>  
 </head>
 
 <body>
@@ -76,8 +107,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
-                        <!-- Profile Picture -->
-                        <img style="width:300px;height:300px;" src="{% static 'images/ab.jpg' %}">
+                       <div id="profile-pic-container" style="cursor: pointer;">
+                          {% if not profilepic %}
+                          <img id="profile-pic" src="{% static 'images/profile-picture.webp' %}" style="width: 400px;height: 300px;" alt="User Profile Picture">
+                          {% else %}
+                            <img src="/media/{{ profilepic.profilepic }}" style="width: 300px; height: 250px;">
+                          {% endif %}
+                        </div>   
                     </div>
                     <div class="col-md-8">
 
@@ -89,7 +125,7 @@
                         <p>State: {{profile.state}}</p>
 
                         <!-- Edit Profile Button -->
-                        <a href="#" class="btn btn-primary">Edit Profile</a>
+                        <a href="/deliveryman/editdeliverymanprofile/{{profile.id}}/" class="btn btn-primary">Edit Profile</a>
                     </div>
                 </div>
             </div>
@@ -104,12 +140,13 @@
     <br><br>
     <hr>
 
-    <div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="change sufee-login d-flex align-content-center flex-wrap">
         <div class="container" style="width: 400px;">
             <div class="login-form">
 
                 <h4>Change Password</h4>
-                <form method="post" id="changepasswordform" action="" style="margin-top:-30px;height: 250px;">
+                <form method="post" id="changepasswordform" action="/deliveryman/changepassword/" >
+                  {% csrf_token %}
                     <input type="hidden" name="id" value="">
                     <label style="font-size: 12px;">Current Password</label>
                     <input name="current_password" type="password" class="form-control"
@@ -129,5 +166,34 @@
     </div>
 
     <hr><br>
+    <div id="profile-upload-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="image-upload-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="image-upload-modal-label">Upload Profile Picture</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/deliveryman/deliverymanprofilepic/" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <input type="file" name="profilepic" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Profile Picture</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+    document.getElementById('profile-pic-container').addEventListener('click', function() {
+      $('#profile-upload-modal').modal('show');
+    });
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.bundle.min.js"></script>
 
     {% include 'deliverymanfooter.html' %}

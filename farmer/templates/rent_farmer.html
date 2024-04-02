@@ -1,0 +1,141 @@
+{% load static %}
+
+{% include 'menu.html' %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>E-KISAN </title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <link rel="apple-touch-icon" href="{% static 'apple-icon.png' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flag-icon.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/scss/style.css' %}">
+    <link href="{% static 'assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+     <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>  
+   
+       
+</head>
+<body style="background-color: LightGray;">
+
+{% include 'header.html' %}
+
+<br>
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content"> 
+                <div class="login-form">
+                    <h4>Rent My Farm</h4><hr>
+                    <form method="post" action="/farmer/rent/">
+                        {% csrf_token %}
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label class=" form-control-label">
+                                    City
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-8">
+                               <input type="number" name="city" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label class=" form-control-label">
+                                    Farm Location
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <textarea type="text" name="location" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label class=" form-control-label">
+                                    Rent
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <input type="number" name="rent" class="form-control">
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row form-group">
+                            <div class="col col-md-4">
+                                <label class=" form-control-label">
+                                    Duration
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <input type="number" name="rent" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                                <div class="col-3 col-md-2">
+                                    <label class=" form-control-label">
+                                        Images
+                                    </label>
+                                </div>
+                                <div class="col-3 col-md-3">
+                                    <input type="file" name="img1" class="form-control" onchange="displayImage(this, 'img1-preview')">
+                                </div>
+                                <div class="col-3 col-md-3">
+                                    <input type="file" name="img2" class="form-control" onchange="displayImage(this, 'img2-preview')">
+                                </div>
+                                <div class="col-3 col-md-3">
+                                    <input type="file" name="img3" class="form-control" onchange="displayImage(this, 'img3-preview')">
+                                </div>
+                            </div>
+                            
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div id="img1-preview"></div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div id="img2-preview"></div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div id="img3-preview"></div>
+                                    </div>
+                                </tr>
+                            </table>
+
+                        <hr>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Ok</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% include 'footer.html' %}
+<script>
+    function displayImage(input, previewId) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#' + previewId).html('<img src="' + e.target.result + '" width="200" height="200">');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+</body>

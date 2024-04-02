@@ -1,11 +1,6 @@
 {% load static %}
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> 
 <html class="no-js" lang=""> 
-<!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,8 +78,7 @@
         });
     }); 
 </script> 
-
-
+    
 </head>
 <body>
 {% include 'menu.html' %}
@@ -99,78 +93,79 @@
             <div class="login-content"> 
                 <div class="login-form">
                     <h3>Add Products Price </h3><hr><br>
-                    <form id="productspriceadd" action="/farmer/productpriceadd/" method="POST">
-                        {% csrf_token %}
-                        <div class="row form-group">
-                            <div class="col col-md-4">
-                                <label class=" form-control-label">
-                                   PRODUCT NAME
-                                </label>
+                        <form id="productspriceadd" action="/farmer/farmeragreement/" method="POST">
+                            {% csrf_token %}
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                    PRODUCT NAME
+                                    </label>
+                                </div>
+
+                                <div class="col-12 col-md-8">
+                                <input type="text" name="product_name" class="form-control" value="{{fruit_name}}"/>
+                                </div>
+                                    
                             </div>
 
-                            <div class="col-12 col-md-8">
-                               <input type="text" name="product_name" class="form-control" value="{{fruit_name}}"/>
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                    Product Type
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input name="product_type" type="text" class="form-control"/>
+                                </div>
                             </div>
-                                
-                        </div>
 
-                        <div class="row form-group">
-                            <div class="col col-md-4">
-                                <label class=" form-control-label">
-                                   Product Type
-                                </label>
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                        Quality
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <select name="quality" class="form-control">
+                                        <option class="form-control">Low</option>
+                                        <option class="form-control">Medium</option>
+                                        <option class="form-control">High</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-12 col-md-8">
-                                <input name="product_type" type="text" class="form-control"/>
-                            </div>
-                        </div>
+                            
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                        RATE
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="number" name="rate" class="form-control">
+                                </div>
+                            </div>    
 
-                        <div class="row form-group">
-                            <div class="col col-md-4">
-                                <label class=" form-control-label">
-                                    Quality
-                                </label>
-                            </div>
-                            <div class="col-12 col-md-8">
-                                <select name="quality" class="form-control">
-                                    <option class="form-control">Low</option>
-                                    <option class="form-control">Medium</option>
-                                    <option class="form-control">High</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="row form-group">
-                            <div class="col col-md-4">
-                                <label class=" form-control-label">
-                                    RATE
-                                </label>
-                            </div>
-                            <div class="col-12 col-md-8">
-                                <input type="number" name="rate" class="form-control">
-                            </div>
-                        </div>    
-
-                        <div class="row form-group">
-                            <div class="col col-md-4">
-                                <label class=" form-control-label">
-                                    Quantity
-                                </label>
-                            </div>
-                            <div class="col-12 col-md-8">
-                                <input type="number" name="quantity" class="form-control">
-                            </div>
-                        </div><hr>
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">ADD</button>
-                    </form>
+                            <div class="row form-group">
+                                <div class="col col-md-4">
+                                    <label class=" form-control-label">
+                                        Quantity
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="number" name="quantity" class="form-control">
+                                </div>
+                            </div><hr>
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">ADD</button>
+                        </form>
                 </div>
             </div>
         </div>
     </div>
 
-                    
-{% include 'footer.html' %}
 
+<div class="footer">                  
+{% include 'footer.html' %}
+</div>
 
 </body>
 </html>

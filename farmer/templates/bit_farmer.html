@@ -1,0 +1,51 @@
+{% include 'menu.html' %}
+
+
+<body style="background-color: LightGray;">    
+
+{% include 'header.html' %}
+
+<br><br><br>    
+
+<div class="content mt-3 shadow-lg">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-8" style="margin-left: 150px ; margin-top : 50px">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Bitting Form</strong>
+                    </div>  
+                    <div class="card-body">
+                        <form method="post" action="/farmer/process_bit/{{user_id}}/">
+                            {% csrf_token %}
+                            <p>Product Name: <input type="text" style="margin-left: 45px;" name="product" value="{{ productname }}" readonly></p>
+                            <p>Product Type: <input type="text" style="margin-left: 55px;" name="product_type" value="{{ producttype }}" readonly></p>
+                            <p>Price: <input type="text" style="margin-left: 115px;" name="price" value="{{ price }}" readonly></p>
+                            <p>Quantity: <input type="text" style="margin-left: 87px;" name="quantity" value="{{ quantity }} Kg" readonly></p>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{{img1}}">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="{{img2}}">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="{{img3}}">
+                                </div>
+                            </div>
+                            <div style="display: flex">
+                                <label style="margin-left: 50px;margin-top:7px;font-weight:  bold;font-size: 18px;"> Your Bit : </label>
+                                <input class="form-control" type="text" name="bit" style="margin-left: 50px; width: 300px;"/> 
+                                <input class="form-control bg-success text-white" type="submit" style="margin-left: 50px; width: 100px;" />
+                            </div>       
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
+
+{% include 'footer.html' %}
+

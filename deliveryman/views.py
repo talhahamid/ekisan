@@ -1,9 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from accounts.models import User
 from farmer.models import Bit
+from deliveryman.models import DeliverynmanProfilePic
 from django.conf import settings
 import requests
 import googlemaps   
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.hashers import make_password
+from django.http import Http404
+import os
+
 # Create your views here.
 def deliveryman(request):
     user_id=request.session.get('user_id')
@@ -14,7 +20,8 @@ def deliveryman(request):
 def profile(request):
     user_id=request.session.get('user_id')
     profile=User.objects.get(id=user_id)
-    return render(request,'deliveryman_profile.html',{'profile':profile})
+    profilepic=DeliverynmanProfilePic.objects.get(user=user_id)
+    return render(request,'deliveryman_profile.html',{'profile':profile,'profilepic':profilepic})
 
 def myproduct(request):
     try:
@@ -86,3 +93,78 @@ def location(request,farmer_address,bitter_address):
         result=""    
     
     return render(request,'deliveryman_location.html',{'lat':lat,'lng':lng,'lat1':lat1,'lng1':lng1})
+
+def editdeliverymanprofile(request,id):
+    deliveryman=User.objects.get(id=id)
+    return render(request,'editdeliverymanprofile.html',{'deliveryman':deliveryman})
+
+def updatedeliverymanprofile(request,id):
+    user=User.objects.get(id=id)
+    if request.method=='POST':
+            user.name=request.POST['name']
+            user.address=request.POST['address']
+            user.city=request.POST['city']
+            user.state=request.POST['state']
+            user.email=request.POST['email'] 
+            user.save()
+    user_id=request.session.get('user_id')
+    profile=User.objects.get(id=user_id)
+    return render(request,'deliveryman_profile.html',{'profile':profile})
+
+
+def changepassword(request):
+    if request.method == 'POST':
+        user_id = request.session.get('user_id')
+        user = User.objects.get(id=user_id)
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        confirm_new_password = request.POST.get('confirm_new_password')
+        password_from_db = user.password        
+        if new_password == confirm_new_password:
+                if check_password(current_password, user.password):
+                        # Hash the new password before saving it
+                        hashed_password = make_password(new_password)
+                        user.password = hashed_password
+                        user.save()
+                        messages = 'Password successfully changed.'
+        user_id=request.session.get('user_id')
+        profile=User.objects.get(id=user_id)
+        return render(request, 'deliveryman_profile.html',{'profile':profile})
+
+
+def deliverymanprofilepic(request):
+        user_id = request.session.get('user_id')
+        user=User.objects.get(id=user_id)
+        try:                    
+                profile=DeliverynmanProfilePic.objects.get(user=user)
+                if profile:
+                        profile.profilepic=request.FILES['profilepic']
+                        profile.save()
+                        file_name = profile.profilepic.name
+                        file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+                        with open(file_path, 'wb') as destination:
+                                for chunk in profile.profilepic.chunks():
+                                        destination.write(chunk)  
+                else:
+                    profilepic=request.FILES['profilepic']
+                    profile=DeliverynmanProfilePic(profilepic=profilepic,user=user)
+                    profile.save() 
+                    file_name = profile.profilepic.name
+                    file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+                    with open(file_path, 'wb') as destination:
+                            for chunk in profile.profilepic.chunks():
+                                    destination.write(chunk)  
+        except:                        
+                print('hey')
+                profilepic=request.FILES['profilepic']
+                profile=DeliverynmanProfilePic(profilepic=profilepic,user=user)
+                profile.save() 
+                file_name = profile.profilepic.name
+                file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+                with open(file_path, 'wb') as destination:
+                        for chunk in profile.profilepic.chunks():
+                                destination.write(chunk) 
+        user_id=request.session.get('user_id')
+        profile=User.objects.get(id=user_id)    
+        profilepic=DeliverynmanProfilePic.objects.get(user=user)                     
+        return render(request,'deliveryman_profile.html',{'profile':profile,'profilepic':profilepic})
