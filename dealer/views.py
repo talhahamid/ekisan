@@ -605,8 +605,9 @@ def process_bit(request,id):
         status = False
         farmer=User.objects.get(name=farmer)
         farmer_address=farmer.address
+        user_ids=User.objects.get(id=id)
         Bit.objects.create(
-            farmer_id=id,   
+            farmer_id=user_ids,   
             farmer=farmer,
             product=product,
             product_type=product_type,

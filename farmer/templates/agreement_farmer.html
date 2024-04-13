@@ -23,7 +23,7 @@
     {% include 'header.html' %}
 
     <br><br>
-<form method="post" action="/farmer/productpriceadd/{{product_name}}/{{product_type}}/{{quality}}/{{rate}}/{{quantity}}/">
+<form method="post" action="/farmer/productpriceadddone/{{product_name}}/{{product_type}}/{{quality}}/{{rate}}/{{quantity}}/">
     {% csrf_token %}    
 <div class="container mt-5">
   <div class="card">
