@@ -60,6 +60,8 @@ urlpatterns = [
 
     path('rent/',views.rent,name="rent"),
 
+    path('getweather/',views.get_weather,name="get_weather"),
+
     # path('farm_view/',views.farm_view,name="farm_view"),
     # path('add_farmer/',views.add_farmer,name="add_farmer"),    
     # path('farm_stream/<int:pk>/',views.farm_stream,name="farm_stream"),    

@@ -1,0 +1,48 @@
+{% include 'menu.html' %}
+
+<body>
+{% include 'header.html' %}
+
+<br>
+    <div class="container" style="margin-left: 175px;">
+        <h4 class="mt-5 mb-4" style="margin-left: 200px;">Today's Weather Update</h4>
+        <div class="row">
+            <div class="col-md-8 mb-4">
+                <div class="card">
+                    <div class="card-header"  style="background-color: lightblue;">
+                        <h5 class="card-title">{{ weather.location }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p class="card-text">Temperature: {{ weather.temperature }}°C</p>
+                                <p class="card-text">Condition: {{ weather.condition }}</p>
+                                <p class="card-text">Humidity: {{ weather.humidity }}%</p>
+                                <p class="card-text">Wind Speed: {{ weather.wind_speed }} km/h</p>
+                                <p class="card-text">Wind Direction: {{ weather.wind_dir }}</p>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="card-text">Pressure: {{ weather.pressure }} mb</p>
+                                <p class="card-text">Feels Like: {{ weather.feels_like }}°C</p>
+                                <p class="card-text">Visibility: {{ weather.visibility }} km</p>
+                                <p class="card-text">UV Index: {{ weather.uv_index }}</p>
+                                <p class="card-text">Cloud Cover: {{ weather.cloud }}%</p>
+                            </div>
+                        </div>
+                        <!-- <p class="card-text">Sunrise: {{ weather.sunrise }}</p>
+                        <p class="card-text">Sunset: {{ weather.sunset }}</p> -->
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div style="margin-top: 125px;">   
+    {% include 'footer.html' %}
+</div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>

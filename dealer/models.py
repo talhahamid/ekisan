@@ -23,3 +23,5 @@ class Bit(models.Model):
 class DealerProfilepic(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     profilepic=models.CharField(max_length=100)
+
+

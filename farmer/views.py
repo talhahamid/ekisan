@@ -590,27 +590,28 @@ def salescategorylist(request):
 def farmerbit(request):
     user_id = request.session.get('user_id')
     if user_id:
-        user = User.objects.get(pk=user_id)
-        user_name = user.name
-    if user_id:
         try:
             user = User.objects.get(id=user_id)
-            bit_data = Bit.objects.filter(farmer_id=user).values('id', 'product', 'bitter','farmer', 'product_type', 'quantity', 'rate', 'quality', 'bit_value', 'status')
-            print('hey',bit_data)
+            bit_data = Bit.objects.filter(farmer_id=user).values('id', 'product', 'bitter', 'product_type', 'quantity', 'rate', 'quality', 'bit_value', 'status')
+            
+            # Organize bit_data by product
             bit = {}
             for entry in bit_data:
                 product_name = entry['product']
-                if product_name not in bit or product_name in bit:
-                        bit[product_name] = []
-                        bit[product_name].append(entry)
+                if product_name not in bit:
+                    bit[product_name] = []
+                bit[product_name].append(entry)
+            
             context = {
-                        'bit': bit,
-                        'bit_data':bit_data,
-                        'user_name':user_name
-                }
-            return render(request,'farmerbit_farmer.html',context)
-        except Bit.DoesNotExist:
-            return render(request, 'error.html', {'message': 'Bit not found'})
+                'bit': bit,
+                'user_name': user.name
+            }
+            return render(request, 'farmerbit_farmer.html', context)
+        except User.DoesNotExist:
+            return render(request, 'error.html', {'message': 'User not found'})
+    else:
+        return render(request, 'error.html', {'message': 'User ID not found in session'})
+
         
 
 def accept_bit(request, dealerbit_id):
@@ -929,3 +930,36 @@ def rent(request):
                                         destination.write(chunk)       
         return render(request,'rent_farmer.html',{'user_name':user_name})
 
+import requests
+
+
+def get_weather(request):
+    user_id=request.session.get('user_id')
+    user=User.objects.get(id=user_id)
+    city=user.city
+    api_key = 'e23f621c37ff4110916230635241205'
+    url = f'http://api.weatherapi.com/v1/current.json?key={api_key}&q={city}&aqi=no'
+    try:
+        response = requests.get(url)
+        data = response.json()
+        if 'error' in data:
+            return JsonResponse({'error': data['error']['message']}, status=400)
+        weather_info = {
+            'location': data['location']['name'],
+            'temperature': data['current']['temp_c'],
+            'condition': data['current']['condition']['text'],
+            'humidity': data['current']['humidity'],
+            'wind_speed': data['current']['wind_kph'],
+            'wind_dir': data['current']['wind_dir'],
+            'pressure': data['current']['pressure_mb'],
+            'feels_like': data['current']['feelslike_c'],
+            'visibility': data['current']['vis_km'],
+            'uv_index': data['current']['uv'],
+            'cloud': data['current']['cloud'],
+            #'sunrise': data['forecast']['forecastday'][0]['astro']['sunrise'],
+            #'sunset': data['forecast']['forecastday'][0]['astro']['sunset'],
+            # Add more fields as needed
+        }
+        return render(request,'getweather_farmer.html',{'weather': weather_info})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)

@@ -66,7 +66,6 @@
                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 200px;"> Product Owner</th>
                                      <th class="sorting" aria-controls="bootstrap-data-table" style="width: 205px;">Quantity</th>
                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Rate</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Bit Rate</th>
                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">Quality</th>
 
                                 </tr>
@@ -75,12 +74,11 @@
                                     
                                     <tr role="row" class="odd">
 
-                                        <td>{{product.name}}</td>
-                                        <td>{{product.farmer}}</td>
+                                        <td>{{product.product_name}}</td>
+                                        <td>{{product.user.name}}</td>
                                         <td>{{product.quantity}}</td>
                                         <td>{{product.quality}}</td>
                                         <td>{{product.rate}}</td>
-                                        <td>{{product.bit_value}}</td>
                                     </tr> 
                                     
                                 </tbody>

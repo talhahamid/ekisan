@@ -54,7 +54,7 @@ urlpatterns = [
 
     path('mybits/', views.mybits, name='mybits'),
 
-    path('get_notifications/', views.get_notifications, name='get_notifications'),
+    path('get_notifications/<int:id>/', views.get_notifications, name='get_notifications'),
 
     path('subscription/',views.subscription,name="subscription"),
     path('freeplan/',views.freeplan,name="freeplan"),

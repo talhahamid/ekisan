@@ -13,7 +13,6 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    {% for product in products %}
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">Product Table</strong>
@@ -28,28 +27,31 @@
                                      <th class="sorting" aria-controls="bootstrap-data-table" style="width: 205px;">Quantity</th>
                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Rate</th>
                                     <th class="sorting" aria-controls="bootstrap-data-table" style="width: 148px;">Bit Rate</th>
-                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">Quality</th>
+                                    <th class="sorting" aria-controls="bootstrap-data-table" style="width: 121px;">Bit Value</th>
 
                                 </tr>
                                 </thead>
                                 <tbody> 
-                                    
+                                    {% for product in products %}
                                     <tr role="row" class="odd">
 
-                                        <td>{{product.name}}</td>
+                                        <td>{{product.product }}</td>
                                         <td>{{product.farmer}}</td>
                                         <td>{{product.quantity}}</td>
                                         <td>{{product.quality}}</td>
                                         <td>{{product.rate}}</td>
                                         <td>{{product.bit_value}}</td>
                                     </tr> 
-                                    
+                                   {% empty %}
+                                    <tr>
+                                        <td colspan="8">No products available</td>
+                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                             </div>
                         </div>
                     </div>    
-                    {% endfor %}
                 </div>
             </div>        
         </div><!-- .animated -->

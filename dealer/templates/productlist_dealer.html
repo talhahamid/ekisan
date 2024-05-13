@@ -54,6 +54,10 @@
                                             </a>
                                         </td>
                                     </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="8">No data available</td>
+                                    </tr>
                                 {% endfor %}     
                                 </tbody>
                             </table>

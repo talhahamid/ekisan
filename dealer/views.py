@@ -553,7 +553,9 @@ def productcategorylist(request):
         user = User.objects.get(pk=user_id)
         user_name = user.name   
     user=User.objects.get(id=user_id)
-    products=Bit.objects.filter(farmer_id=user,status=True)    
+    name=user.name
+    products=Bit.objects.filter(bitter=name,status=True) 
+    print(products)  
     return render(request, 'productcategorylist_dealer.html',{'user_name':user_name,'products':products})
    
 def productlist(request,fruit):
@@ -571,8 +573,8 @@ def productlist(request,fruit):
                         user = User.objects.get(pk=user_id)
                         user_name = user.name
                 return render(request, 'productlist_dealer.html', {'fruit_data': fruit_data, 'fruit': fruit,'user_name':user_name})
-        return render(request, 'productlist_dealer.html', {'fruit_data': fruit_data, 'fruit': fruit,'user_name':user_name})
-
+        
+        
 def transactions(request):
     return render(request, 'transactionsdealer_dealer.html')    
 
@@ -632,7 +634,9 @@ def mybits(request):
     if user_id:
         try:
             user = User.objects.get(id=user_id)
-            bit_data = Bit.objects.filter(farmer_id=user).values('product','farmer', 'product_type', 'quantity', 'rate', 'quality', 'bit_value')
+            name=user.name
+            print('hi',name)
+            bit_data = Bit.objects.filter(bitter=name).values('product','farmer', 'product_type', 'quantity', 'rate', 'quality', 'bit_value')
             print('het',bit_data)
             bit = {}
             for entry in bit_data:
@@ -654,15 +658,19 @@ def mybits(request):
                 return render(request, 'error.html', {'message': 'Bit not found'})
         
 
-def get_notifications(request):
-    user_id = request.session.get('user_id')
-    user=User.objects.get(id=user_id)
-    if user_id:
-        user_notifications = Message.objects.filter(user=user.name).values('notification','product')
-        notifications = [{'notification': notification['notification'], 'product': notification['product']} for notification in user_notifications]
-        bit_value=Bit.objects.get(bitter=user.name)
-        quantity=(bit_value.quantity)
-        return JsonResponse({'notifications': notifications, 'bit_value': bit_value.bit_value,'quantity':quantity})
+from django.core.exceptions import ObjectDoesNotExist
+
+def get_notifications(request,id):
+    if id:
+        try:
+            user = User.objects.get(id=id)
+            user_notifications = Message.objects.filter(user=user.name).values('notification', 'product')
+            notifications = [{'notification': notification['notification'], 'product': notification['product']} for notification in user_notifications]
+            bit_value = Bit.objects.get(bitter=user.name)
+            quantity = bit_value.quantity
+            return JsonResponse({'notifications': notifications, 'bit_value': bit_value.bit_value, 'quantity': quantity})
+        except ObjectDoesNotExist:
+            return JsonResponse({'error': 'Bit object does not exist for the current user'})
     return JsonResponse({'notifications': [], 'bit_value': None})
 
 

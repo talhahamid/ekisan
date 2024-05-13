@@ -32,13 +32,6 @@ class Tracking(models.Model):
     delivery_status = models.CharField(max_length=50, default='Pending')
     delivery_date = models.DateField(null=True, blank=True) 
 
-
-@receiver(post_save, sender=Bit)
-def send_acceptance_notification(sender, instance, **kwargs):
-    if instance.status:
-        message = f'Your bit for {instance.product} is accepted by the {instance.farmer} .'
-        Message.objects.create(user=instance.bitter, product=instance.product, notification=message)
-
        
 
 class Agreement(models.Model):
