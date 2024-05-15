@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-bv@*m=fn+=4enh9brpji-7dh*thv#8g4eq506hve(ji_pox=i6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ekisan-3.onrender.com','localhost']
+ALLOWED_HOSTS = ['ekisan.onrender.com','localhost']
 
 
 # Application definition
