@@ -1,4 +1,4 @@
-#!D:\Projects\E-Kisan\ekisan\env\Scripts\python.exe
+#!D:\Projects\ekisan\env\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
