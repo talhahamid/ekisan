@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-bv@*m=fn+=4enh9brpji-7dh*thv#8g4eq506hve(ji_pox=i6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ekisan.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['ekisan-3.onrender.com','localhost']
 
 
 # Application definition
@@ -131,16 +131,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'  # Changed from 'static/' to '/static/'
 
-STATICFILES_DIRS=[
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-#STATIC_ROOT= os.path.join(BASE_DIR, 'assets')
+
+# Set STATIC_ROOT for deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+
+# Configure STATICFILES_STORAGE for production
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
